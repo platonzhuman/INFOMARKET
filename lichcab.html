@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | INFO-MARKET</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для личного кабинета */
+        .dashboard-welcome {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideInUp 0.8s ease;
+        }
+        
+        .user-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            border: 4px solid rgba(255,255,255,0.2);
+            box-shadow: var(--shadow-2xl);
+            transition: all var(--transition-normal);
+        }
+        
+        .user-avatar:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius-2xl);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin: 1rem 0;
+            text-shadow: 0 2px 10px rgba(16, 185, 120, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        
+        .dashboard-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .nav-card {
+            background: var(--bg-white);
+            padding: 2rem 1.5rem;
+            border-radius: var(--border-radius-2xl);
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all var(--transition-normal);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .nav-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .nav-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .nav-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .recent-activity {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-2xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all var(--transition-normal);
+        }
+        
+        .activity-item:hover {
+            background: rgba(255,255,255,0.05);
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 -1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        
+        .activity-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .activity-time {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-align: right;
+            min-width: 100px;
+        }
+        
+        /* Модальные окна */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: var(--z-modal);
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal-content {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-3xl);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: var(--shadow-2xl);
+            animation: modalEnter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color var(--transition-normal);
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .close-modal:hover {
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .topup-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .topup-option {
+            padding: 1.5rem 1rem;
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-xl);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .topup-option:hover {
+            border-color: var(--primary-color);
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .topup-option.active {
+            border-color: var(--primary-color);
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .custom-amount {
+            margin: 1.5rem 0;
+        }
+        
+        .custom-amount input {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: var(--border-radius-xl);
+            border: 2px solid rgba(255,255,255,0.1);
+            background: var(--bg-light);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: all var(--transition-normal);
+        }
+        
+        .custom-amount input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: rgba(255,255,255,0.05);
+        }
+        
+        /* Анимации */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalEnter {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-nav {
+                grid-template-columns: 1fr;
+            }
+            
+            .topup-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .activity-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .activity-time {
+                text-align: left;
+            }
+        }
+        
+        /* Секции продуктов и заказов */
+        .section-container {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-2xl);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .product-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all var(--transition-normal);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .product-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .status-active {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .status-expired {
+            background: var(--warning-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orbs"></div>
+        <div class="grid-pattern"></div>
+        <div class="floating-particles" id="particles-container"></div>
+    </div>
+
+    <!-- Шапка сайта -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo-section">
+                <h1 class="logo">
+                    <a href="index.html" aria-label="INFO-MARKET - вернуться на главную">INFO-MARKET</a>
+                </h1>
+                <p class="logo-subtitle">Ваш надежный партнер в мире технологий</p>
+            </div>
+            
+            <nav class="main-menu" id="main-menu" role="navigation" aria-label="Основная навигация">
+                <ul role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Главная</a></li>
+                    <li role="none"><a href="lichcab.html" role="menuitem" aria-current="page">Личный кабинет</a></li>
+                    <li role="none"><a href="#products" role="menuitem">Продукты</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <span id="userGreeting" style="color: var(--text-white); margin-right: 1rem;"></span>
+                <button class="btn btn-login" onclick="logout()" aria-label="Выйти из аккаунта">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержимое личного кабинета -->
+    <main id="main-content" role="main">
+        <section class="dashboard-section main-section" aria-labelledby="dashboard-heading">
+            <div class="container">
+                <!-- Приветствие -->
+                <div class="dashboard-welcome">
+                    <div class="user-avatar" id="userAvatar">И</div>
+                    <h1 id="dashboard-heading">Добро пожаловать в личный кабинет!</h1>
+                    <p id="userEmail" class="section-subtitle">Управляйте своими продуктами и настройками</p>
+                </div>
+
+                <!-- Быстрая статистика -->
+                <div class="quick-stats">
+                    <div class="stat-card card-3d">
+                        <h3>💰 Баланс</h3>
+                        <p class="balance-amount" id="userBalance">0 ₽</p>
+                        <button class="btn btn-primary" onclick="showTopUpModal()">Пополнить</button>
+                    </div>
+                    <div class="stat-card card-3d">
+                        <h3>📦 Активные продукты</h3>
+                        <p class="stat-number" id="activeProducts">0</p>
+                        <button class="btn btn-secondary" onclick="showSection('products')">Управлять</button>
+                    </div>
+                    <div class="stat-card card-3d">
+                        <h3>🎁 Бонусы</h3>
+                        <p class="stat-number" id="userBonuses">0</p>
+                        <button class="btn btn-secondary" onclick="showBonuses()">Использовать</button>
+                    </div>
+                </div>
+
+                <!-- Навигация -->
+                <div class="dashboard-nav">
+                    <a href="javascript:void(0)" class="nav-card card-3d" onclick="showSection('products')">
+                        <h4>📦 Мои продукты</h4>
+                        <p>Управление подписками и услугами</p>
+                    </a>
+                    <a href="javascript:void(0)" class="nav-card card-3d" onclick="showSection('orders')">
+                        <h4>📋 История заказов</h4>
+                        <p>Все ваши покупки и транзакции</p>
+                    </a>
+                    <a href="javascript:void(0)" class="nav-card card-3d" onclick="showSection('settings')">
+                        <h4>⚙️ Настройки</h4>
+                        <p>Управление аккаунтом и безопасность</p>
+                    </a>
+                    <a href="javascript:void(0)" class="nav-card card-3d" onclick="showSupport()">
+                        <h4>💬 Поддержка</h4>
+                        <p>Помощь и консультации 24/7</p>
+                    </a>
+                </div>
+
+                <!-- Секция продуктов -->
+                <div id="products-section" class="section-container">
+                    <h3>Мои продукты</h3>
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Продукты будут загружены через JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Секция заказов -->
+                <div id="orders-section" class="section-container">
+                    <h3>История заказов</h3>
+                    <div class="table-container">
+                        <table class="products-table">
+                            <thead>
+                                <tr>
+                                    <th>№ Заказа</th>
+                                    <th>Дата</th>
+                                    <th>Продукт</th>
+                                    <th>Сумма</th>
+                                    <th>Статус</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTable">
+                                <!-- Заказы будут загружены через JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Недавняя активность -->
+                <div class="recent-activity card-3d">
+                    <h3>📊 Недавняя активность</h3>
+                    <div id="recentActivity">
+                        <!-- Активность будет загружена через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно пополнения баланса -->
+    <div id="topup-modal" class="modal">
+        <div class="modal-content glass-effect">
+            <button class="close-modal" onclick="closeTopUpModal()">&times;</button>
+            <h3>Пополнение баланса</h3>
+            <p>Выберите сумму для пополнения</p>
+            
+            <div class="topup-options">
+                <button class="topup-option" onclick="selectAmount(500)">500 ₽</button>
+                <button class="topup-option" onclick="selectAmount(1000)">1,000 ₽</button>
+                <button class="topup-option" onclick="selectAmount(5000)">5,000 ₽</button>
+            </div>
+            
+            <div class="custom-amount">
+                <input type="number" id="custom-amount" placeholder="Или введите другую сумму" min="100" max="50000">
+            </div>
+            
+            <button class="btn btn-primary btn-large" onclick="processPayment()" style="width: 100%; margin-top: 1rem;">
+                Пополнить баланс
+            </button>
+        </div>
+    </div>
+
+</body>
+<script>
+    // ЛИЧНЫЙ КАБИНЕТ - УЛЬТРАНАДЕЖНАЯ ВЕРСИЯ
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🔍 Запуск личного кабинета');
+        
+        // Проверяем пользователя несколькими способами
+        const user = getUserFromAnywhere();
+        
+        if (user && user.loggedIn) {
+            console.log('✅ Пользователь найден:', user.name);
+            loadUserData(user);
+        } else {
+            console.log('❌ Пользователь не найден, перенаправляем...');
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1000);
+        }
+    });
+
+    function getUserFromAnywhere() {
+        let user = null;
+        
+        // 1. Пробуем из URL параметров
+        const urlParams = new URLSearchParams(window.location.search);
+        const userFromUrl = urlParams.get('user');
+        if (userFromUrl) {
+            try {
+                user = JSON.parse(decodeURIComponent(userFromUrl));
+                console.log('📨 Пользователь из URL:', user);
+                // Сохраняем в localStorage на будущее
+                localStorage.setItem('user', JSON.stringify(user));
+            } catch (e) {
+                console.log('❌ Ошибка парсинга URL:', e);
+            }
+        }
+        
+        // 2. Пробуем из localStorage
+        if (!user) {
+            try {
+                const userData = localStorage.getItem('user');
+                if (userData) {
+                    user = JSON.parse(userData);
+                    console.log('📦 Пользователь из localStorage:', user);
+                }
+            } catch (e) {
+                console.log('❌ Ошибка чтения localStorage:', e);
+            }
+        }
+        
+        // 3. Пробуем из sessionStorage
+        if (!user) {
+            try {
+                const userData = sessionStorage.getItem('user');
+                if (userData) {
+                    user = JSON.parse(userData);
+                    console.log('💾 Пользователь из sessionStorage:', user);
+                }
+            } catch (e) {
+                console.log('❌ Ошибка чтения sessionStorage:', e);
+            }
+        }
+        
+        return user;
+    }
+
+    function loadUserData(user) {
+        console.log('👤 Загружаем данные:', user);
+        
+        // Заполняем интерфейс
+        document.getElementById('dashboard-heading').textContent = `Добро пожаловать, ${user.name}!`;
+        document.getElementById('userEmail').textContent = user.email;
+        
+        const greetingElement = document.getElementById('userGreeting');
+        if (greetingElement) {
+            greetingElement.textContent = `Привет, ${user.name}`;
+        }
+        
+        const avatarElement = document.getElementById('userAvatar');
+        if (avatarElement) {
+            avatarElement.textContent = user.name.charAt(0).toUpperCase();
+        }
+        
+        const balanceElement = document.getElementById('userBalance');
+        if (balanceElement) {
+            balanceElement.textContent = `${user.balance} ₽`;
+        }
+        
+        const bonusesElement = document.getElementById('userBonuses');
+        if (bonusesElement) {
+            bonusesElement.textContent = user.bonuses || 100;
+        }
+        
+        console.log('✅ Интерфейс обновлен');
+    }
+
+    function logout() {
+        if (confirm('Выйти из аккаунта?')) {
+            // Очищаем все хранилища
+            localStorage.removeItem('user');
+            sessionStorage.removeItem('user');
+            
+            // Убираем параметры из URL
+            window.location.href = 'index.html';
+        }
+    }
+
+    function showTopUp() {
+        const amount = prompt('Введите сумму пополнения (от 100 ₽):');
+        if (amount && amount >= 100) {
+            // Обновляем данные пользователя
+            const user = getUserFromAnywhere();
+            if (user) {
+                user.balance = (user.balance || 0) + parseInt(amount);
+                
+                // Сохраняем обновленные данные
+                localStorage.setItem('user', JSON.stringify(user));
+                sessionStorage.setItem('user', JSON.stringify(user));
+                
+                // Обновляем отображение
+                document.getElementById('userBalance').textContent = `${user.balance} ₽`;
+                alert(`✅ Баланс пополнен на ${amount} ₽`);
+            }
+        } else if (amount) {
+            alert('Минимальная сумма 100 ₽');
+        }
+    }
+</script>
+</html>

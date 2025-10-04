@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="INFO-MARKET - инновационные решения для вашего бизнеса. Автоматизация, аналитика и современные технологии для роста вашей компании.">
+    <meta name="keywords" content="бизнес-решения, автоматизация, аналитика, технологии, IT-услуги">
+    <meta name="author" content="INFO-MARKET">
+    <meta property="og:title" content="INFO-MARKET | Инновационные решения для вашего бизнеса">
+    <meta property="og:description" content="Преобразуйте свой бизнес с помощью наших инновационных решений. Более 5000 довольных клиентов по всему миру.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload критических ресурсов -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <title>INFO-MARKET</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Schema.org структурированные данные -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "INFO-MARKET",
+      "description": "Лидер в создании инновационных бизнес-решений с 2008 года",
+      "url": "https://info-market.ru",
+      "logo": "https://info-market.ru/logo.png",
+      "telephone": "+7-495-123-45-67",
+      "email": "info@info-market.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Технологическая, д. 42",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "sameAs": [
+        "https://vk.com/infomarket",
+        "https://t.me/infomarket",
+        "https://youtube.com/infomarket"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orbs"></div>
+        <div class="grid-pattern"></div>
+        <div class="floating-particles" id="particles-container"></div>
+    </div>
+
+    <!-- Пропуск навигации для пользователей скринридеров -->
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+    
+    <!-- Шапка сайта -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo-section">
+                <h1 class="logo">
+                    <a  class="logo-subtitle" href="/" aria-label="INFO-MARKET - вернуться на главную">
+                        INFO-MARKET
+                    </a>
+                </h1>
+                <p class="logo-subtitle">Ваш надежный партнер в мире технологий</p>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Открыть меню">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <nav class="main-menu" id="main-menu" role="navigation" aria-label="Основная навигация">
+                <ul role="menubar">
+                    <li role="none"><a href="#home" role="menuitem" aria-current="page">Главная</a></li>
+                    <li role="none"><a href="./about.html" role="menuitem">О нас</a></li>
+                    <li role="none"><a href="#stats" role="menuitem">Статистика</a></li>
+                    <li role="none"><a href="#advantages" role="menuitem">Преимущества</a></li>
+                    <li role="none"><a href="./product.html" role="menuitem">Продукты</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="btn btn-login" onclick="window.location.href='login.html'" aria-label="Войти в личный кабинет">Вход</button>
+                <button class="btn btn-register" onclick="window.location.href='register.html'" aria-label="Зарегистрироваться">Регистрация</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <main id="main-content" role="main">
+        <!-- Герой-секция -->
+        <section id="home" class="hero-section" aria-labelledby="hero-heading">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-heading" class="hero-title">Добро пожаловать в будущее вашего бизнеса</h1>
+                    <p class="hero-subtitle">Мы создаем инновационные решения, которые выводят компании на новый уровень эффективности и прибыльности. Более 5000 клиентов по всему миру уже доверились нам.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" aria-describedby="cooperation-desc"><a href="login.html">Начать сотрудничество</a></button>
+                        <button class="btn btn-secondary btn-large"><a href="about.html">Узнать больше</a></button>
+                    </div>
+                    <div class="hero-features" role="list" aria-label="Ключевые преимущества">
+                        <div class="feature-item" role="listitem">
+                            <span class="feature-icon" aria-hidden="true">🚀</span>
+                            <span class="feature-text">Запуск за 24 часа</span>
+                        </div>
+                        <div class="feature-item" role="listitem">
+                            <span class="feature-icon" aria-hidden="true">💡</span>
+                            <span class="feature-text">Инновационные технологии</span>
+                        </div>
+                        <div class="feature-item" role="listitem">
+                            <span class="feature-icon" aria-hidden="true">🔒</span>
+                            <span class="feature-text">Гарантия безопасности</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="visual-placeholder">
+                        <div class="floating-cards-container">
+                            <div class="floating-card card-1 card-3d">
+                                <h4>Аналитика в реальном времени</h4>
+                                <p>Мониторинг ключевых показателей 24/7</p>
+                            </div>
+                            <div class="floating-card card-2 card-3d">
+                                <h4>Автоматизация процессов</h4>
+                                <p>Снижение затрат на 45% в среднем</p>
+                            </div>
+                            <div class="floating-card card-3 card-3d">
+                                <h4>Мобильный доступ</h4>
+                                <p>Работайте из любой точки мира</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "О нас" -->
+        <section id="about" class="main-section bg-grey" aria-labelledby="about-heading">
+            <div class="container container-narrow">
+                <h2 id="about-heading" class="section-title">О компании INFO-MARKET</h2>
+                <p class="section-subtitle">Мы - команда профессионалов, объединенных общей целью: сделать передовые технологии доступными для бизнеса любого масштаба</p>
+                
+                <div class="about-content">
+                    <div class="about-grid">
+                        <div class="about-item glass-effect">
+                            <h3>Наша миссия</h3>
+                            <p>Предоставлять инновационные IT-решения, которые помогают компаниям достигать стратегических целей и оставаться конкурентоспособными в цифровую эпоху.</p>
+                        </div>
+                        <div class="about-item glass-effect">
+                            <h3>Наше видение</h3>
+                            <p>Стать ведущим провайдером бизнес-решений в Восточной Европе, известным своим качеством, надежностью и инновационным подходом.</p>
+                        </div>
+                        <div class="about-item glass-effect">
+                            <h3>Наши ценности</h3>
+                            <p>Инновации, качество, прозрачность и долгосрочное партнерство - это фундаментальные принципы, на которых строится наша работа.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция статистики -->
+        <section id="stats" class="stats-section main-section" aria-labelledby="stats-heading">
+            <div class="container">
+                <h2 id="stats-heading" class="section-title">Мы в цифрах</h2>
+                <p class="section-subtitle">Реальные результаты, которые говорят сами за себя</p>
+                <div class="stats-grid" role="list" aria-label="Статистика компании">
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" data-target="150" aria-live="polite">0</div>
+                        <div class="stat-label">Завершенных проектов</div>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" data-target="98" aria-live="polite">0</div>
+                        <div class="stat-label">Довольных клиентов (%)</div>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" data-target="24" aria-live="polite">0</div>
+                        <div class="stat-label">Часа поддержки в сутки</div>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" data-target="15" aria-live="polite">0</div>
+                        <div class="stat-label">Лет на рынке</div>
+                    </div>
+                </div>
+                <div class="stats-chart">
+                    <div class="chart-placeholder">
+                        <h3>Динамика роста компании за последние 5 лет</h3>
+                        <div class="chart-bars" role="img" aria-label="График роста компании с 2019 по 2023 год">
+                            <div class="chart-bar" data-height="60" data-year="2019" aria-label="2019 год: рост 60%"></div>
+                            <div class="chart-bar" data-height="75" data-year="2020" aria-label="2020 год: рост 75%"></div>
+                            <div class="chart-bar" data-height="85" data-year="2021" aria-label="2021 год: рост 85%"></div>
+                            <div class="chart-bar" data-height="95" data-year="2022" aria-label="2022 год: рост 95%"></div>
+                            <div class="chart-bar" data-height="100" data-year="2023" aria-label="2023 год: рост 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция преимуществ -->
+        <section id="advantages" class="advantages-section main-section" aria-labelledby="advantages-heading">
+            <div class="container">
+                <h2 id="advantages-heading" class="section-title">Наши преимущества</h2>
+                <p class="section-subtitle">Почему компании выбирают именно наши решения</p>
+                <div class="advantages-grid" role="list" aria-label="Преимущества компании">
+                    <article class="advantage-card card-3d" role="listitem">
+                        <div class="advantage-icon" aria-hidden="true">⚡</div>
+                        <h3 class="advantage-title">Максимальная скорость</h3>
+                        <p class="advantage-description">Оптимизированные процессы и быстрая интеграция позволяют начать работу в кратчайшие сроки. Среднее время внедрения - 3 рабочих дня.</p>
+                        <ul class="advantage-list" role="list">
+                            <li>Быстрое развертывание</li>
+                            <li>Мгновенная синхронизация</li>
+                            <li>Высокая производительность</li>
+                        </ul>
+                    </article>
+                    <article class="advantage-card card-3d" role="listitem">
+                        <div class="advantage-icon" aria-hidden="true">🔧</div>
+                        <h3 class="advantage-title">Гибкая настройка</h3>
+                        <p class="advantage-description">Индивидуальная адаптация под специфику вашего бизнеса. Мы понимаем, что каждый клиент уникален.</p>
+                        <ul class="advantage-list" role="list">
+                            <li>Персональные решения</li>
+                            <li>Модульная архитектура</li>
+                            <li>Легкая масштабируемость</li>
+                        </ul>
+                    </article>
+                    <article class="advantage-card card-3d" role="listitem">
+                        <div class="advantage-icon" aria-hidden="true">🛡️</div>
+                        <h3 class="advantage-title">Безопасность данных</h3>
+                        <p class="advantage-description">Многоуровневая система защиты информации соответствует международным стандартам безопасности.</p>
+                        <ul class="advantage-list" role="list">
+                            <li>Шифрование данных</li>
+                            <li>Регулярное резервное копирование</li>
+                            <li>Сертифицированные дата-центры</li>
+                        </ul>
+                    </article>
+                    <article class="advantage-card card-3d" role="listitem">
+                        <div class="advantage-icon" aria-hidden="true">📊</div>
+                        <h3 class="advantage-title">Детальная аналитика</h3>
+                        <p class="advantage-description">Получайте глубокие инсайты о вашем бизнесе с помощью продвинутых инструментов анализа данных.</p>
+                        <ul class="advantage-list" role="list">
+                            <li>Отчеты в реальном времени</li>
+                            <li>Прогнозное моделирование</li>
+                            <li>Визуализация данных</li>
+                        </ul>
+                    </article>
+                    <article class="advantage-card card-3d" role="listitem">
+                        <div class="advantage-icon" aria-hidden="true">🌍</div>
+                        <h3 class="advantage-title">Глобальная поддержка</h3>
+                        <p class="advantage-description">Наша команда поддержки работает 24/7 на 5 языках, чтобы помочь вам в любой точке мира.</p>
+                        <ul class="advantage-list" role="list">
+                            <li>Круглосуточная техподдержка</li>
+                            <li>Многоязычный персонал</li>
+                            <li>Быстрое решение проблем</li>
+                        </ul>
+                    </article>
+                    <article class="advantage-card card-3d" role="listitem">
+                        <div class="advantage-icon" aria-hidden="true">💸</div>
+                        <h3 class="advantage-title">Экономическая эффективность</h3>
+                        <p class="advantage-description">Снижайте операционные расходы и увеличивайте рентабельность с нашими оптимизированными решениями.</p>
+                        <ul class="advantage-list" role="list">
+                            <li>Прозрачное ценообразование</li>
+                            <li>Гибкие тарифные планы</li>
+                            <li>Быстрая окупаемость</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция таблиц с продуктами -->
+        <section id="products" class="products-section main-section" aria-labelledby="products-heading">
+            <div class="container">
+                <h2 id="products-heading" class="section-title">Наши продукты</h2>
+                <p class="section-subtitle">Комплексные решения для различных отраслей бизнеса</p>
+                
+                <div class="table-container" role="region" aria-labelledby="products-table-caption">
+                    <table class="products-table" aria-describedby="products-table-description">
+                        <caption id="products-table-caption" class="sr-only">Таблица продуктов INFO-MARKET с ценами и рейтингами</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Категория</th>
+                                <th scope="col">Продукт</th>
+                                <th scope="col">Основные функции</th>
+                                <th scope="col">Рейтинг</th>
+                                <th scope="col">Цена</th>
+                                <th scope="col">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="category-header">Obrbot (Образование)</th>
+                                <td>ЕГЭ/OГЭ - решебник</td>
+                                <td>Сборник актуальных задач по любым предметам</td>
+                                <td>
+                                    <span class="rating-stars" aria-label="Рейтинг 4.8 из 5">★★★★☆</span>
+                                    <span class="rating-value">4.8</span>
+                                </td>
+                                <td class="price">4,500 руб.</td>
+                                <td>
+                                    <button class="btn btn-table" aria-label="Подробнее о ЕГЭ/OГЭ решебник">Подробнее</button>
+                                    <button class="btn btn-table btn-buy" aria-label="Купить ЕГЭ/OГЭ решебник">Купить</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Английский язык для IT-интенсив</td>
+                                <td>Быстрое изучение с нуля, интерактивные уроки</td>
+                                <td>
+                                    <span class="rating-stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                </td>
+                                <td class="price">5,500 руб.</td>
+                                <td>
+                                    <button class="btn btn-table" aria-label="Подробнее об Английском для IT">Подробнее</button>
+                                    <button class="btn btn-table btn-buy" aria-label="Купить Английский для IT">Купить</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="category-header">Finbot (Финансы)</th>
+                                <td>Учет финансов</td>
+                                <td>Учет средств и персональные рекомендации</td>
+                                <td>
+                                    <span class="rating-stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                </td>
+                                <td class="price">8,900 руб.</td>
+                                <td>
+                                    <button class="btn btn-table" aria-label="Подробнее об Учете финансов">Подробнее</button>
+                                    <button class="btn btn-table btn-buy" aria-label="Купить Учет финансов">Купить</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Инвестиционный помощник</td>
+                                <td>Анализ рынка акций и криптовалют</td>
+                                <td>
+                                    <span class="rating-stars" aria-label="Рейтинг 4.7 из 5">★★★★☆</span>
+                                    <span class="rating-value">4.7</span>
+                                </td>
+                                <td class="price">12,000 руб.</td>
+                                <td>
+                                    <button class="btn btn-table" aria-label="Подробнее об Инвестиционном помощнике">Подробнее</button>
+                                    <button class="btn btn-table btn-buy" aria-label="Купить Инвестиционный помощник">Купить</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="category-header">AI Assistant</th>
+                                <td>AI-помощник 24/7</td>
+                                <td>На базе GPT-4, отвечает на вопросы, генерирует контент</td>
+                                <td>
+                                    <span class="rating-stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                </td>
+                                <td class="price">15,000 руб.</td>
+                                <td>
+                                    <button class="btn btn-table" aria-label="Подробнее об AI-помощнике">Подробнее</button>
+                                    <button class="btn btn-table btn-buy" aria-label="Купить AI-помощник">Купить</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Голосовой ассистент</td>
+                                <td>Распознавание речи, управление устройствами</td>
+                                <td>
+                                    <span class="rating-stars" aria-label="Рейтинг 4.7 из 5">★★★★☆</span>
+                                    <span class="rating-value">4.7</span>
+                                </td>
+                                <td class="price">11,000 руб.</td>
+                                <td>
+                                    <button class="btn btn-table" aria-label="Подробнее о Голосовом ассистенте">Подробнее</button>
+                                    <button class="btn btn-table btn-buy" aria-label="Купить Голосовой ассистент">Купить</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="table-footer">
+                                    Показано 6 из 20 продуктов. <a href="#" class="view-all">Посмотреть все продукты</a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Дополнительная таблица с сравнением тарифов -->
+                <div class="pricing-comparison" role="region" aria-labelledby="pricing-comparison-heading">
+                    <h3 id="pricing-comparison-heading" class="comparison-title">Сравнение тарифных планов</h3>
+                    <table class="comparison-table" aria-describedby="pricing-comparison-description">
+                        <caption id="pricing-comparison-description" class="sr-only">Сравнение тарифных планов Стартовый, Профессиональный, Корпоративный и Премиум</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Функция</th>
+                                <th scope="col">Стартовый</th>
+                                <th scope="col">Профессиональный</th>
+                                <th scope="col">Корпоративный</th>
+                                <th scope="col">Премиум</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Количество пользователей</th>
+                                <td>1</td>
+                                <td>5</td>
+                                <td>Безлимитно</td>
+                                <td>Безлимитно</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Объем хранилища</th>
+                                <td>10 ГБ</td>
+                                <td>100 ГБ</td>
+                                <td>500 ГБ</td>
+                                <td>1 ТБ</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Приоритетная поддержка</th>
+                                <td><span aria-hidden="true">✗</span><span class="sr-only">Нет</span></td>
+                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
+                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
+                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да, 24/7</span> 24/7</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Интеграции со сторонними сервисами</th>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>Безлимитно</td>
+                                <td>Безлимитно</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Кастомная аналитика</th>
+                                <td><span aria-hidden="true">✗</span><span class="sr-only">Нет</span></td>
+                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
+                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
+                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да, расширенная</span> Расширенная</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Стоимость в месяц</th>
+                                <td>2,990 руб.</td>
+                                <td>7,990 руб.</td>
+                                <td>19,990 руб.</td>
+                                <td>39,990 руб.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Стартовый тариф">Выбрать</button></td>
+                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Профессиональный тариф">Выбрать</button></td>
+                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Корпоративный тариф">Выбрать</button></td>
+                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Премиум тариф">Выбрать</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция отзывов -->
+        <section class="testimonials-section main-section" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <h2 id="testimonials-heading" class="section-title">Отзывы наших клиентов</h2>
+                <p class="section-subtitle">Что говорят компании, которые уже используют наши решения</p>
+                <div class="testimonials-grid" role="list" aria-label="Отзывы клиентов">
+                    <blockquote class="testimonial-card card-3d" role="listitem">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Внедрение решений INFO-MARKET позволило нам сократить операционные расходы на 35% и увеличить скорость обработки заказов в 2 раза. Команда профессионалов, которые действительно понимают потребности бизнеса."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">АП</div>
+                            <div class="author-info">
+                                <cite class="author-name">Анна Петрова</cite>
+                                <p class="author-position">Директор по развитию, ТехноИнновации</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                    <blockquote class="testimonial-card card-3d" role="listitem">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Сотрудничаем с INFO-MARKET более 3 лет. За это время автоматизировали все ключевые процессы компании. Особенно хочу отметить отзывчивую техническую поддержку, которая всегда на связи и оперативно решает любые вопросы."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">ДС</div>
+                            <div class="author-info">
+                                <cite class="author-name">Дмитрий Соколов</cite>
+                                <p class="author-position">CEO, ФинансГрупп</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                    <blockquote class="testimonial-card card-3d" role="listitem">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Миграция на платформу INFO-MARKET прошла максимально гладко. Наши сотрудники освоили новый инструмент за несколько дней. Теперь мы получаем детальную аналитику в реальном времени, что помогает принимать стратегические решения быстрее."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">МИ</div>
+                            <div class="author-info">
+                                <cite class="author-name">Мария Иванова</cite>
+                                <p class="author-position">Операционный директор, ЛогистПро</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция призыва к действию -->
+        <section class="cta-section main-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 id="cta-heading" class="cta-title">Готовы преобразовать свой бизнес?</h2>
+                    <p class="cta-description">Присоединяйтесь к тысячам компаний, которые уже используют наши решения для достижения впечатляющих результатов.</p>
+                    <div class="cta-actions">
+                        <button class="btn btn-primary btn-large">Начать бесплатный trial</button>
+                        <button class="btn btn-secondary btn-large">Заказать демонстрацию</button>
+                    </div>
+                    <div class="cta-features" role="list" aria-label="Преимущества trial-периода">
+                        <div class="cta-feature" role="listitem">
+                            <span class="feature-check" aria-hidden="true">✓</span>
+                            <span>14 дней бесплатного использования</span>
+                        </div>
+                        <div class="cta-feature" role="listitem">
+                            <span class="feature-check" aria-hidden="true">✓</span>
+                            <span>Без обязательств и кредитной карты</span>
+                        </div>
+                        <div class="cta-feature" role="listitem">
+                            <span class="feature-check" aria-hidden="true">✓</span>
+                            <span>Персональный менеджер с первого дня</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">INFO-MARKET</h3>
+                    <p class="footer-description">Лидер в создании инновационных бизнес-решений с 2008 года. Мы помогаем компаниям достигать новых высот с помощью передовых технологий.</p>
+                    <div class="social-links" role="list" aria-label="Социальные сети">
+                        <a href="#" class="social-link" role="listitem" aria-label="ВКонтакте">VK</a>
+                        <a href="#" class="social-link" role="listitem" aria-label="Telegram">Tg</a>
+                        <a href="#" class="social-link" role="listitem" aria-label="YouTube">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Продукты</h4>
+                    <ul class="footer-links" role="list">
+                        <li role="listitem"><a href="#">Бизнес-аналитика</a></li>
+                        <li role="listitem"><a href="#">Автоматизация</a></li>
+                        <li role="listitem"><a href="#">Корпоративные решения</a></li>
+                        <li role="listitem"><a href="#">Мобильные приложения</a></li>
+                        <li role="listitem"><a href="#">Интеграции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Компания</h4>
+                    <ul class="footer-links" role="list">
+                        <li role="listitem"><a href="#">О нас</a></li>
+                        <li role="listitem"><a href="#">Команда</a></li>
+                        <li role="listitem"><a href="#">Вакансии</a></li>
+                        <li role="listitem"><a href="#">Новости</a></li>
+                        <li role="listitem"><a href="#">Партнеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Поддержка</h4>
+                    <ul class="footer-links" role="list">
+                        <li role="listitem"><a href="#">Документация</a></li>
+                        <li role="listitem"><a href="#">База знаний</a></li>
+                        <li role="listitem"><a href="#">Форум</a></li>
+                        <li role="listitem"><a href="#">Контакты</a></li>
+                        <li role="listitem"><a href="#">Сообщить о проблеме</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" id="contact">
+                    <h4 class="footer-subtitle">Контакты</h4>
+                    <address class="contact-info">
+                        <p>📞 <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                        <p>✉️ <a href="mailto:info@info-market.ru">info@info-market.ru</a></p>
+                        <p>📍 Москва, ул. Технологическая, д. 42</p>
+                        <p>🕒 Пн-Пт: 9:00-18:00</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 INFO-MARKET. Все права защищены.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Карта сайта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Вспомогательные скрипты -->
+    <script>
+        // Улучшенный скрипт для анимации счетчиков статистики
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация счетчиков
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    const updateCount = () => {
+                        const newCount = Math.ceil(count + increment);
+                        if (newCount < target) {
+                            counter.innerText = newCount;
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                }
+            };
+            
+            // Intersection Observer для запуска анимации при прокрутке
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+            
+            // Мобильное меню
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainMenu = document.querySelector('.main-menu');
+            
+            if (menuToggle && mainMenu) {
+                menuToggle.addEventListener('click', () => {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    mainMenu.classList.toggle('active');
+                    
+                    // Блокировка скролла при открытом меню
+                    document.body.style.overflow = !isExpanded ? 'hidden' : '';
+                });
+            }
+            
+            // Закрытие меню при клике на ссылку
+            document.querySelectorAll('.main-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mainMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Плавная прокрутка для якорных ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Анимация появления элементов при скролле
+            const animateOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Применяем анимацию к карточкам
+            document.querySelectorAll('.advantage-card, .testimonial-card, .stat-item').forEach(el => {
+                el.style.opacity = "0";
+                el.style.transform = "translateY(30px)";
+                el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+                animateOnScroll.observe(el);
+            });
+            
+            // Particle system initialization
+            const particlesContainer = document.getElementById('particles-container');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random properties
+                const size = Math.random() * 3 + 1;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+        
+        // Эффект параллакса для фона
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.gradient-orbs, .grid-pattern');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.classList.contains('gradient-orbs') ? 0.5 : 0.3;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+    <script>
+    // Проверка авторизации на главной странице
+    document.addEventListener('DOMContentLoaded', function() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        const headerActions = document.querySelector('.header-actions');
+        
+        if (user && user.loggedIn) {
+            // Пользователь авторизован - показываем кнопку "Личный кабинет"
+            headerActions.innerHTML = `
+                <span style="color: var(--text-white); margin-right: 1rem;">Привет, ${user.name}</span>
+                <button class="btn btn-login" onclick="window.location.href='lichcab.html'">Личный кабинет</button>
+                <button class="btn btn-register" onclick="logout()">Выйти</button>
+            `;
+        } else {
+            // Пользователь не авторизован - показываем кнопки входа/регистрации
+            headerActions.innerHTML = `
+                <button class="btn btn-login" onclick="window.location.href='login.html'">Вход</button>
+                <button class="btn btn-register" onclick="window.location.href='register.html'">Регистрация</button>
+            `;
+        }
+    });
+
+    function logout() {
+        if (confirm('Вы уверены, что хотите выйти?')) {
+            localStorage.removeItem('user');
+            location.reload();
+        }
+    }
+</script>
+</body>
+
+</html>

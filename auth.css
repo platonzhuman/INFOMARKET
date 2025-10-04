@@ -1,0 +1,411 @@
+/* Стили для страниц аутентификации */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    position: relative;
+    z-index: var(--z-normal);
+}
+
+.auth-card {
+    padding: 3rem 2.5rem;
+    border-radius: var(--border-radius-3xl);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 60px rgba(102, 126, 234, 0.2);
+    transform-style: preserve-3d;
+    animation: authCardEntrance 0.8s var(--transition-elastic);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    transform: translateZ(var(--depth-2));
+}
+
+.auth-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.auth-form {
+    transform-style: preserve-3d;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+    transform-style: preserve-3d;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1.2rem 1rem;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+    transform: translateZ(var(--depth-1));
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateZ(var(--depth-2));
+}
+
+.input-group label {
+    position: absolute;
+    top: 1.2rem;
+    left: 1rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all var(--transition-normal);
+    transform: translateZ(var(--depth-1));
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 0.8rem;
+    background: var(--bg-dark);
+    padding: 0 0.5rem;
+    color: var(--primary-color);
+    transform: translateZ(var(--depth-2));
+}
+
+/* Стили для монстра в инпутах */
+.monster-input {
+    position: relative;
+}
+
+.input-monster {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%) translateZ(var(--depth-2));
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    transition: all var(--transition-normal);
+    pointer-events: none;
+}
+
+.input-monster::before {
+    content: '👁️';
+    font-size: 1.2rem;
+    filter: grayscale(0.5);
+    transition: all var(--transition-normal);
+}
+
+.input-group input:focus ~ .input-monster {
+    opacity: 1;
+    animation: monsterBlink 2s infinite;
+}
+
+.input-group input:focus ~ .input-monster::before {
+    filter: grayscale(0);
+    transform: scale(1.2);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transform: translateZ(var(--depth-1));
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--text-light);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    position: relative;
+    transition: all var(--transition-normal);
+    transform: translateZ(var(--depth-1));
+}
+
+.checkbox input:checked + .checkmark {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateZ(var(--depth-2)) scale(1.1);
+}
+
+.checkbox input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    transform: translateZ(var(--depth-1));
+}
+
+.forgot-password:hover {
+    color: var(--primary-light);
+    transform: translateZ(var(--depth-2));
+}
+
+.auth-btn {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    transform: translateZ(var(--depth-2));
+}
+
+.auth-footer {
+    text-align: center;
+    transform: translateZ(var(--depth-1));
+}
+
+.auth-footer p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.auth-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+    transform: translateZ(var(--depth-1));
+}
+
+.auth-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-normal);
+    transform: translateZ(var(--depth-1));
+}
+
+.auth-link:hover::after {
+    width: 100%;
+}
+
+/* Анимации для монстра */
+.monster-container {
+    position: fixed;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%) translateZ(0);
+    z-index: var(--z-normal);
+    pointer-events: none;
+}
+
+.monster {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-accent);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+    animation: 
+        monsterFloat 6s ease-in-out infinite,
+        monsterColorShift 8s ease-in-out infinite;
+    box-shadow: 
+        0 10px 30px rgba(241, 63, 49, 0.3),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+}
+
+.monster-eye {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateZ(var(--depth-2));
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    animation: monsterBlink 3s infinite;
+}
+
+.monster-eye::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(var(--depth-3));
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.monster-mouth {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%) translateZ(var(--depth-1));
+    width: 30px;
+    height: 15px;
+    background: #333;
+    border-radius: 0 0 15px 15px;
+    animation: monsterChew 1.5s infinite;
+}
+
+/* Анимации */
+@keyframes authCardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(50px) translateZ(var(--depth-1)) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(var(--depth-2)) scale(1);
+    }
+}
+
+@keyframes monsterFloat {
+    0%, 100% {
+        transform: translateY(0px) translateZ(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateZ(10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) translateZ(5px) rotate(-3deg);
+    }
+    75% {
+        transform: translateY(-15px) translateZ(8px) rotate(2deg);
+    }
+}
+
+@keyframes monsterColorShift {
+    0%, 100% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(45deg);
+    }
+}
+
+@keyframes monsterBlink {
+    0%, 45%, 55%, 100% {
+        transform: translateX(-50%) translateZ(var(--depth-2)) scaleY(1);
+    }
+    48%, 52% {
+        transform: translateX(-50%) translateZ(var(--depth-2)) scaleY(0.1);
+    }
+}
+
+@keyframes monsterChew {
+    0%, 100% {
+        height: 8px;
+        border-radius: 0 0 15px 15px;
+    }
+    50% {
+        height: 12px;
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+@keyframes inputMonsterEat {
+    0% {
+        transform: translateX(0) translateY(-50%) translateZ(var(--depth-2));
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-10px) translateY(-50%) translateZ(var(--depth-3));
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0) translateY(-50%) translateZ(var(--depth-2));
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .monster-container {
+        display: none;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* Эффект поедания текста */
+.monster-feast .input-group input {
+    animation: textDisappear 0.5s ease-in-out forwards;
+}
+
+@keyframes textDisappear {
+    0% {
+        color: var(--text-primary);
+    }
+    50% {
+        color: transparent;
+        text-shadow: 2px 2px 4px rgba(241, 63, 49, 0.5);
+    }
+    100% {
+        color: var(--text-primary);
+    }
+}

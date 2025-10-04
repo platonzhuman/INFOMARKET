@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug LocalStorage</title>
+</head>
+<body>
+    <h1>🔧 Debug панель</h1>
+    
+    <button onclick="testLocalStorage()">Тест LocalStorage</button>
+    <button onclick="clearAll()">Очистить всё</button>
+    <button onclick="createTestUser()">Создать тестового пользователя</button>
+    
+    <div id="output" style="margin-top: 20px; padding: 10px; background: #f0f0f0;"></div>
+    
+    <script>
+        function testLocalStorage() {
+            const output = document.getElementById('output');
+            let html = '<h3>Результаты теста:</h3>';
+            
+            // Тест записи
+            try {
+                localStorage.setItem('test', 'works');
+                html += '<p>✅ Запись в localStorage: РАБОТАЕТ</p>';
+            } catch (e) {
+                html += `<p>❌ Запись в localStorage: НЕ РАБОТАЕТ (${e})</p>`;
+            }
+            
+            // Тест чтения
+            try {
+                const testValue = localStorage.getItem('test');
+                html += `<p>✅ Чтение из localStorage: ${testValue}</p>`;
+            } catch (e) {
+                html += `<p>❌ Чтение из localStorage: НЕ РАБОТАЕТ (${e})</p>`;
+            }
+            
+            // Показываем текущего пользователя
+            try {
+                const user = localStorage.getItem('user');
+                html += `<p>📦 Текущий пользователь: ${user || 'НЕТ'}</p>`;
+            } catch (e) {
+                html += `<p>❌ Ошибка чтения пользователя: ${e}</p>`;
+            }
+            
+            output.innerHTML = html;
+        }
+        
+        function clearAll() {
+            localStorage.clear();
+            sessionStorage.clear();
+            document.getElementById('output').innerHTML = '<p>🧹 Все хранилища очищены</p>';
+        }
+        
+        function createTestUser() {
+            const testUser = {
+                name: "TestUser",
+                email: "test@test.ru", 
+                loggedIn: true,
+                balance: 5000,
+                bonuses: 300
+            };
+            
+            localStorage.setItem('user', JSON.stringify(testUser));
+            document.getElementById('output').innerHTML = '<p>✅ Тестовый пользователь создан!</p>';
+        }
+        
+        // Авто-тест при загрузке
+        testLocalStorage();
+    </script>
+</body>
+</html>

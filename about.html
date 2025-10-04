@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Ваш Бренд</title>
+    <link rel="stylesheet" href="./style.css"> <!-- Подключение основного CSS -->
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <a href="index.html" class="logo">ВашЛоготип</a>
+                <span class="logo-subtitle">Доверие и качество</span>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html" aria-current="page">О нас</a></li>
+                    <li><a href="product.html">Товары</a></li>
+                    <li><a href="index.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-login">Вход</button>
+                <button class="btn btn-register">Регистрация</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section" style="background: var(--gradient-primary); min-height: 60vh;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Наша история</h1>
+                <p class="hero-subtitle">Мы — команда энтузиастов, которая верит, что бизнес строится на честности и личных отношениях.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT CONTENT ===== -->
+    <section class="main-section">
+        <div class="container">
+            <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4xl); align-items: center;">
+                
+                <!-- Текстовая часть -->
+                <div class="about-content">
+                    <h2 style="margin-bottom: var(--spacing-lg);">Мы больше, чем просто компания</h2>
+                    <p style="margin-bottom: var(--spacing-lg); font-size: var(--font-size-lg);">
+                        Наш путь начался с простой идеи — создавать продукты, которые делают жизнь наших клиентов лучше. 
+                        Мы не верим в безликие корпорации, поэтому всегда остаемся доступными и открытыми для диалога.
+                    </p>
+                    
+                    <div class="values-list" style="margin-top: var(--spacing-2xl);">
+                        <div class="value-item" style="margin-bottom: var(--spacing-xl);">
+                            <h4 style="color: var(--primary-color);">Честность</h4>
+                            <p>Мы говорим правду о наших продуктах и всегда выполняем обещания.</p>
+                        </div>
+                        <div class="value-item" style="margin-bottom: var(--spacing-xl);">
+                            <h4 style="color: var(--primary-color);">Качество</h4>
+                            <p>Каждый наш продукт проходит тщательный контроль перед тем, как попасть к вам.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4 style="color: var(--primary-color);">Поддержка</h4>
+                            <p>Мы всегда на связи и готовы помочь с любым вопросом.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок для фото -->
+                <div class="about-visual">
+                    <div class="team-photo-placeholder" style="background: rgba(255,255,255,0.05); border-radius: var(--border-radius-2xl); padding: var(--spacing-2xl); text-align: center; border: 2px dashed var(--primary-color); min-height: 400px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <span style="font-size: 3rem; margin-bottom: var(--spacing-md);">📷</span>
+                        <p style="color: var(--text-light);">Здесь будет ваше фото<br>или фото команды</p>
+                        <small style="color: var(--text-light); margin-top: var(--spacing-sm);">Рекомендуемый размер: 600x400px</small>
+                    </div>
+                    
+                    <!-- Дополнительные мини-фото -->
+                    <div class="additional-photos" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
+                        <div style="background: rgba(255,255,255,0.03); border-radius: var(--border-radius-lg); height: 120px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border-color);">
+                            <span style="color: var(--text-light);">Фото 2</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border-radius: var(--border-radius-lg); height: 120px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border-color);">
+                            <span style="color: var(--text-light);">Фото 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Готовы ответить на ваши вопросы</h2>
+                <p class="cta-description">
+                    Свяжитесь с нами напрямую — мы всегда рады познакомиться и обсудить, как можем быть полезны.
+                </p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-large">Написать нам</a>
+                    <a href="tel:+79991234567" class="btn btn-secondary btn-large">Позвонить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">ВашЛоготип</h3>
+                    <p class="footer-description">Мы делаем бизнес человечным с 2020 года.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="contact-info">
+                        <p>📞 +7 (999) 123-45-67</p>
+                        <p>✉️ hello@yourbrand.ru</p>
+                        <p>📍 Москва, ул. Примерная, 15</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Ваш Бренд. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простой скрипт для мобильного меню
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+            document.querySelector('.main-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
