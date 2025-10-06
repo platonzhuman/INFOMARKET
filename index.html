@@ -62,36 +62,39 @@
     <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
     
     <!-- Шапка сайта -->
-    <header class="header" role="banner">
-        <div class="container">
-            <div class="logo-section">
-                <p>INFO-MARKET</p>
-                <p class="logo-subtitle">Ваш надежный партнер в мире технологий</p>
-            </div>
-            
-            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Открыть меню">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            
-            <nav class="main-menu" id="main-menu" role="navigation" aria-label="Основная навигация">
-                <ul role="menubar">
-                    <li role="none"><a href="#home" role="menuitem" aria-current="page">Главная</a></li>
-                    <li role="none"><a href="./about.html" role="menuitem">О нас</a></li>
-                    <li role="none"><a href="#stats" role="menuitem">Статистика</a></li>
-                    <li role="none"><a href="#advantages" role="menuitem">Преимущества</a></li>
-                    <li role="none"><a href="./product.html" role="menuitem">Продукты</a></li>
-                    <li role="none"><a href="#contact" role="menuitem">Контакты</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-actions">
-                <button class="btn btn-login" onclick="window.location.href='login.html'" aria-label="Войти в личный кабинет">Вход</button>
-                <button class="btn btn-register" onclick="window.location.href='register.html'" aria-label="Зарегистрироваться">Регистрация</button>
-            </div>
+<!-- ===== FIXED HEADER ===== -->
+<header class="header" role="banner">
+    <div class="container">
+        <div class="logo-section">
+            <h1 class="logo">
+                <a href="index.html" aria-label="INFO-MARKET - вернуться на главную">
+                    INFO-MARKET
+                </a>
+            </h1>
         </div>
-    </header>
+        
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="product.html" aria-current="page">Товары</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="btn btn-login">Вход</button>
+            <button class="btn btn-register">Регистрация</button>
+        </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+</header>
 
     <!-- Основное содержимое страницы -->
     <main id="main-content" role="main">

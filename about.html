@@ -3,36 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О нас - Ваш Бренд</title>
+    <title>О нас - info-market</title>
     <link rel="stylesheet" href="./style.css"> <!-- Подключение основного CSS -->
 </head>
 <body>
     <!-- ===== HEADER ===== -->
-    <header class="header">
-        <div class="container">
-            <div class="logo-section">
-                <a href="index.html" class="logo">ВашЛоготип</a>
-                <span class="logo-subtitle">Доверие и качество</span>
-            </div>
-            <nav class="main-menu">
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="about.html" aria-current="page">О нас</a></li>
-                    <li><a href="product.html">Товары</a></li>
-                    <li><a href="index.html">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="btn btn-login">Вход</button>
-                <button class="btn btn-register">Регистрация</button>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
+     <!-- Шапка сайта -->
+<!-- ===== FIXED HEADER ===== -->
+<header class="header" role="banner">
+    <div class="container">
+        <div class="logo-section">
+            <h1 class="logo">
+                <a href="index.html" aria-label="INFO-MARKET - вернуться на главную">
+                    INFO-MARKET
+                </a>
+            </h1>
         </div>
-    </header>
+        
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="product.html" aria-current="page">Товары</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="index.html">Контакты</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="btn btn-login">Вход</button>
+            <button class="btn btn-register">Регистрация</button>
+        </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+</header>
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero-section" style="background: var(--gradient-primary); min-height: 60vh;">
