@@ -2726,3 +2726,16 @@ textarea:focus-visible {
     background: var(--bg-light);
     color: var(--text-primary);
 }
+/* Добавить в style.css */
+* {
+  will-change: auto;
+}
+
+/* Отключить тяжелые анимации на мобильных */
+@media (max-width: 768px) {
+  .floating-particles, 
+  .gradient-orbs,
+  .card-3d:hover {
+    display: none;
+  }
+}
