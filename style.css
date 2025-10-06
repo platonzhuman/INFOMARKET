@@ -3080,3 +3080,375 @@ body {
   justify-content: center;
   color: var(--primary-color);
 }
+
+/* ===== CROSS-BROWSER CSS OPTIMIZATION ===== */
+/* Reset for all browsers */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* HTML base for cross-browser compatibility */
+html {
+    font-size: 14px;
+    line-height: 1.5;
+    text-size-adjust: 100%; /* Prevent font scaling in landscape */
+    scroll-behavior: smooth;
+}
+
+/* Body reset with vendor prefixes */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-primary, #f8fafc);
+    background-color: var(--bg-primary, #0f172a);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== LOGO SECTION FIXES ===== */
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+.logo {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logo a {
+    color: var(--primary-color, #60a5fa);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+/* Focus styles for accessibility */
+.logo a:focus {
+    outline: 2px solid var(--primary-color, #60a5fa);
+    outline-offset: 2px;
+    border-color: var(--primary-color, #60a5fa);
+}
+
+.logo-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: var(--text-secondary, #cbd5e1);
+    text-align: center;
+    margin: 0.5rem 0 0 0;
+    opacity: 0.9;
+}
+
+/* ===== CROSS-BROWSER FLEXBOX FIXES ===== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fix for Safari flexbox issues */
+.flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+/* ===== BUTTON CROSS-BROWSER FIXES ===== */
+.btn {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Safari-specific button fixes */
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+        .btn {
+            -webkit-appearance: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    }
+}
+
+/* ===== FORM ELEMENTS CROSS-BROWSER ===== */
+input, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 0.75rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+    width: 100%;
+    background: white;
+    color: #1f2937;
+}
+
+/* Remove IE clear button */
+input::-ms-clear {
+    display: none;
+}
+
+/* Placeholder styles */
+::-webkit-input-placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+::-moz-placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+:-ms-input-placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+::-ms-input-placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+::placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+
+/* ===== SCROLLBAR CONSISTENCY ===== */
+/* For Webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary, #1e293b);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color, #60a5fa);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark, #3b82f6);
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color, #60a5fa) var(--bg-secondary, #1e293b);
+}
+
+/* ===== IMAGE OPTIMIZATIONS ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+/* ===== ANIMATION & TRANSITION FIXES ===== */
+/* Hardware acceleration for smooth animations */
+.animate-transform {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+/* Cross-browser transition */
+.fade-in {
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* = BROWSER-SPECIFIC FIXES = */
+/* Safari 10+ */
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+        .logo-section {
+            -webkit-transform: translateZ(0);
+        }
+    }
+}
+
+/* Firefox specific */
+@-moz-document url-prefix() {
+    .logo a {
+        border: 1px solid transparent;
+    }
+    
+    body {
+        scrollbar-width: thin;
+    }
+}
+
+/* Edge/IE fallbacks */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .logo-section {
+        display: block;
+        text-align: center;
+    }
+    
+    .flex-container {
+        display: block;
+    }
+}
+
+/* ===== MOBILE TOUCH OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    /* Prevent text size adjustment on orientation change */
+    html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    /* Improve touch targets */
+    .btn, button, [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 16px;
+    }
+    
+    /* Prevent zoom on input focus in iOS */
+    input, select, textarea {
+        font-size: 16px;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .logo-section {
+        color: black !important;
+    }
+    
+    .logo a {
+        color: black !important;
+        text-decoration: underline;
+    }
+    
+    .btn {
+        display: none !important;
+    }
+}
+
+/* ===== ACCESSIBILITY & PREFERENCES ===== */
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        -webkit-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --primary-color: #0056b3;
+    }
+    
+    .logo a {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Dark mode consistency */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Containment for better performance */
+.logo-section {
+    contain: layout style paint;
+}
+
+/* Will-change for elements that animate */
+.animated-element {
+    will-change: transform, opacity;
+}
+
+/* ===== FALLBACK STYLES ===== */
+/* If CSS variables aren't supported */
+@supports not (--css: variables) {
+    .logo a {
+        color: #60a5fa;
+    }
+    
+    body {
+        background-color: #0f172a;
+        color: #f8fafc;
+    }
+    
+    .logo-subtitle {
+        color: #cbd5e1;
+    }
+}
