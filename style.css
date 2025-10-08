@@ -3435,406 +3435,82 @@ p, h1, h2, h3, h4, h5, h6, span, a {
   overflow-x: hidden !important;
   position: relative !important;
 }
-/* ===== АДАПТИВНАЯ СЕТКА ===== */
-/* Мобильные устройства (4 колонки) */
-.grid-mobile-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-md);
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ АНИМАЦИЙ ===== */
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease;
+    transform: translate(-50%, -50%);
 }
 
-/* Планшеты (8 колонок) */
-.grid-tablet-8 {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: var(--spacing-lg);
+.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.5);
 }
 
-/* Ноутбуки (12 колонок) */
-.grid-desktop-12 {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--spacing-xl);
+/* Анимации для Intersection Observer */
+.animate-in {
+    animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-/* ===== ОБНОВЛЕННЫЕ СЕТКИ С АДАПТИВНОСТЬЮ ===== */
-
-/* Advantages Grid */
-.advantages-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Stats Grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
+/* Улучшенные анимации частиц */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: particleFloat3D 25s infinite linear;
+    transform-style: preserve-3d;
 }
 
-/* Testimonials Grid */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
+@keyframes particleFloat3D {
+    0% {
+        transform: translate3d(0, 100vh, -500px) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(100vw, -100px, 500px) rotate(360deg) scale(1.5);
+        opacity: 0;
+    }
 }
 
-/* Products Grid */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
-}
-
-/* Services Grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
-}
-
-/* Footer Grid */
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
-}
-
-/* ===== МЕДИА-ЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ ===== */
-@media (min-width: 768px) {
-  .advantages-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  .testimonials-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  .services-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  .footer-content {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  /* Распределение элементов по колонкам на планшетах */
-  .advantage-card {
-    grid-column: span 4;
-  }
-  
-  .stat-item {
-    grid-column: span 4;
-  }
-  
-  .testimonial-card {
-    grid-column: span 4;
-  }
-  
-  .product-card {
-    grid-column: span 4;
-  }
-  
-  .service-card {
-    grid-column: span 4;
-  }
-  
-  .footer-section:first-child {
-    grid-column: 1 / -1;
-  }
-  
-  .footer-section:not(:first-child) {
-    grid-column: span 2;
-  }
-}
-
-/* ===== МЕДИА-ЗАПРОСЫ ДЛЯ НОУТБУКОВ ===== */
-@media (min-width: 1024px) {
-  .advantages-grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  .testimonials-grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  .services-grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  .footer-content {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  /* Распределение элементов по колонкам на ноутбуках */
-  .advantage-card {
-    grid-column: span 4;
-  }
-  
-  .stat-item {
-    grid-column: span 3;
-  }
-  
-  .testimonial-card {
-    grid-column: span 4;
-  }
-  
-  .product-card {
-    grid-column: span 4;
-  }
-  
-  .service-card {
-    grid-column: span 4;
-  }
-  
-  .footer-section:first-child {
-    grid-column: span 4;
-  }
-  
-  .footer-section:not(:first-child) {
-    grid-column: span 2;
-  }
-}
-
-/* ===== АДАПТИВНЫЕ КОНТЕЙНЕРЫ ===== */
-.container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-    padding: 0 var(--spacing-lg);
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1200px;
-    padding: 0 var(--spacing-xl);
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1320px;
-  }
-}
-
-/* ===== АДАПТИВНАЯ ТИПОГРАФИЯ ===== */
-.hero-title {
-  font-size: clamp(1.75rem, 4vw, var(--font-size-6xl));
-  grid-column: 1 / -1;
-}
-
-.section-title {
-  font-size: clamp(1.5rem, 3vw, var(--font-size-4xl));
-  grid-column: 1 / -1;
-}
-
-.hero-subtitle,
-.section-subtitle {
-  font-size: clamp(1rem, 2vw, var(--font-size-xl));
-  grid-column: 1 / -1;
-}
-
-/* ===== АДАПТИВНЫЕ КОМПОНЕНТЫ ===== */
-/* Карточки продуктов */
-.product-card {
-  background: var(--bg-white);
-  border-radius: var(--border-radius-xl);
-  padding: var(--spacing-lg);
-  transition: all var(--transition-normal);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Карточки преимуществ */
-.advantage-card {
-  background: var(--bg-white);
-  border-radius: var(--border-radius-xl);
-  padding: var(--spacing-xl);
-  transition: all var(--transition-normal);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Статистика */
-.stat-item {
-  background: var(--bg-white);
-  border-radius: var(--border-radius-xl);
-  padding: var(--spacing-lg);
-  text-align: center;
-  transition: all var(--transition-normal);
-}
-
-/* Отзывы */
-.testimonial-card {
-  background: var(--bg-white);
-  border-radius: var(--border-radius-xl);
-  padding: var(--spacing-xl);
-  transition: all var(--transition-normal);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ===== МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ===== */
-@media (max-width: 767px) {
-  /* На мобильных все элементы занимают всю ширину */
-  .advantage-card,
-  .stat-item,
-  .testimonial-card,
-  .product-card,
-  .service-card,
-  .footer-section {
-    grid-column: 1 / -1 !important;
-  }
-  
-  /* Уменьшаем отступы на мобильных */
-  .main-section {
-    padding: var(--spacing-3xl) 0;
-  }
-  
-  .hero-section {
-    padding: 100px 0 var(--spacing-2xl);
-  }
-  
-  /* Улучшаем читаемость текста */
-  p {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-  }
-  
-  /* Оптимизируем кнопки для касаний */
-  .btn {
-    min-height: 44px;
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-size: var(--font-size-base);
-  }
-  
-  /* Улучшаем навигацию */
-  .main-menu ul {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-  
-  .header-actions {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-}
-
-/* ===== СПЕЦИАЛЬНЫЕ АДАПТИВНЫЕ КЛАССЫ ===== */
-.span-4 { grid-column: span 4; }
-.span-8 { grid-column: span 8; }
-.span-12 { grid-column: span 12; }
-
-.span-2-tablet { 
-  grid-column: span 2; 
-}
-
-.span-4-desktop { 
-  grid-column: span 4; 
-}
-
-.span-6-desktop { 
-  grid-column: span 6; 
-}
-
-/* ===== ОБНОВЛЕННЫЕ СЕКЦИИ С АДАПТИВНОСТЬЮ ===== */
-.hero-section .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .hero-section .container {
-    grid-template-columns: repeat(8, 1fr);
-    gap: var(--spacing-xl);
-  }
-  
-  .hero-content {
-    grid-column: 1 / 5;
-  }
-  
-  .hero-visual {
-    grid-column: 5 / -1;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-section .container {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--spacing-2xl);
-  }
-  
-  .hero-content {
-    grid-column: 1 / 7;
-  }
-  
-  .hero-visual {
-    grid-column: 7 / -1;
-  }
-}
-
-/* ===== ФИКСЫ ДЛЯ СУЩЕСТВУЮЩИХ КОМПОНЕНТОВ ===== */
-/* Гарантируем, что все grid элементы имеют правильное поведение */
-[class*="grid"] > * {
-  min-width: 0; /* Предотвращает переполнение */
-}
-
-/* Улучшаем производительность анимаций */
-.advantage-card,
-.product-card,
-.testimonial-card,
-.stat-item {
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-/* Оптимизация для медленных соединений */
+/* Адаптивные медиа-запросы для анимаций */
 @media (prefers-reduced-motion: reduce) {
-  .advantage-card,
-  .product-card,
-  .testimonial-card,
-  .stat-item {
-    transition: none;
-  }
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .custom-cursor {
+        display: none;
+    }
+}
+
+/* Оптимизация для слабых устройств */
+@media (max-width: 1024px) {
+    .card-3d:hover {
+        transform: none !important;
+    }
 }
