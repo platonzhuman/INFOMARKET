@@ -53,55 +53,137 @@
     </section>
 
     <!-- ===== ABOUT CONTENT ===== -->
+
     <section class="main-section">
-        <div class="container">
-            <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4xl); align-items: center;">
+    <div class="container">
+        <div class="about-grid">
+            
+            <!-- Текстовая часть -->
+            <div class="about-content">
+                <h2>Мы больше, чем просто компания</h2>
+                <p>
+                    Наш путь начался с простой идеи — создавать продукты, которые делают жизнь наших клиентов лучше. 
+                    Мы не верим в безликие корпорации, поэтому всегда остаемся доступными и открытыми для диалога.
+                </p>
                 
-                <!-- Текстовая часть -->
-                <div class="about-content">
-                    <h2 style="margin-bottom: var(--spacing-lg);">Мы больше, чем просто компания</h2>
-                    <p style="margin-bottom: var(--spacing-lg); font-size: var(--font-size-lg);">
-                        Наш путь начался с простой идеи — создавать продукты, которые делают жизнь наших клиентов лучше. 
-                        Мы не верим в безликие корпорации, поэтому всегда остаемся доступными и открытыми для диалога.
-                    </p>
-                    
-                    <div class="values-list" style="margin-top: var(--spacing-2xl);">
-                        <div class="value-item" style="margin-bottom: var(--spacing-xl);">
-                            <h4 style="color: var(--primary-color);">Честность</h4>
-                            <p>Мы говорим правду о наших продуктах и всегда выполняем обещания.</p>
-                        </div>
-                        <div class="value-item" style="margin-bottom: var(--spacing-xl);">
-                            <h4 style="color: var(--primary-color);">Качество</h4>
-                            <p>Каждый наш продукт проходит тщательный контроль перед тем, как попасть к вам.</p>
-                        </div>
-                        <div class="value-item">
-                            <h4 style="color: var(--primary-color);">Поддержка</h4>
-                            <p>Мы всегда на связи и готовы помочь с любым вопросом.</p>
-                        </div>
+                <div class="values-list">
+                    <div class="value-item">
+                        <h4>Честность</h4>
+                        <p>Мы говорим правду о наших продуктах и всегда выполняем обещания.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Качество</h4>
+                        <p>Каждый наш продукт проходит тщательный контроль перед тем, как попасть к вам.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Поддержка</h4>
+                        <p>Мы всегда на связи и готовы помочь с любым вопросом.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Блок для фото -->
-                <div class="about-visual">
-    <!-- Основное фото -->
-    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-         alt="Команда" 
-         style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; display: block;">
-    
-    <!-- Два маленьких фото -->
-    <div style="display: flex; gap: 20px; margin-top: 20px;">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
-             alt="Работа" 
-             style="width: 50%; height: 120px; object-fit: cover; border-radius: 10px;">
-        
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
-             alt="Офис" 
-             style="width: 50%; height: 120px; object-fit: cover; border-radius: 10px;">
-    </div>
-</div>
+            <!-- Блок для фото -->
+            <div class="about-visual">
+                <img src="./images/photo_2025-10-08_15-12-06.jpg" 
+                     alt="Команда" 
+                     class="main-photo">
+                
+                <div class="photo-grid">
+                    <img src="./images/photo_2025-10-08_15-12-24.jpg" 
+                         alt="Работа" 
+                         class="small-photo">
+                    
+                    <img src="./images/photo_2025-10-08_15-12-29.jpg" 
+                         alt="Офис" 
+                         class="small-photo">
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.values-list {
+    margin-top: 2rem;
+}
+
+.value-item {
+    margin-bottom: 1.5rem;
+}
+
+.value-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.main-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.small-photo {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Для планшетов и выше */
+@media (min-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+    
+    .main-photo {
+        height: 350px;
+    }
+    
+    .small-photo {
+        height: 140px;
+    }
+}
+
+/* Для десктопов */
+@media (min-width: 1024px) {
+    .main-photo {
+        height: 400px;
+    }
+    
+    .small-photo {
+        height: 150px;
+    }
+}
+</style>
 
     <!-- ===== CTA SECTION ===== -->
     <section class="cta-section">
