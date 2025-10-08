@@ -124,3 +124,5 @@ function logout() {
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', checkAuthStatus);
+
+

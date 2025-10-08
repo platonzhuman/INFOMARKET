@@ -50,6 +50,7 @@
       ]
     }
     </script>
+
 </head>
 <body class="site-wrapper">
     <div class="animated-bg">
@@ -61,40 +62,53 @@
     <!-- Пропуск навигации для пользователей скринридеров -->
     <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
     
-    <!-- Шапка сайта -->
-<!-- ===== FIXED HEADER ===== -->
-<header class="header" role="banner">
-    <div class="container">
-        <div class="logo-section">
-            <h1 class="logo">
-                <a href="index.html" aria-label="INFO-MARKET - вернуться на главную">
-                    INFO-MARKET
+    <!-- УЛУЧШЕННЫЙ HEADER -->
+    <header class="header" role="banner">
+        <div class="header-progress" id="headerProgress"></div>
+        <div class="container">
+            <!-- Logo: добавил реальный img + текстовую альтернативу -->
+            <div class="logo-section">
+            <h1 class="logo" role="heading" aria-level="1">
+                <a href="index.html" aria-label="INFO-MARKET - вернуться на главную" class="logo-link">
+                <!-- Подложите сюда ваш файл логотипа: assets/logo.png -->
+                <img src="./images/photo_2025-10-08_15-12-06.jpg" alt="INFO-MARKET" class="logo-img" onerror="this.style.display='none'">
+                <span class="logo-text-fallback">INFO-MARKET <small class="logo-badge">AI</small></span>
                 </a>
             </h1>
+            </div>
+
+            
+            <nav class="main-menu" id="main-menu" role="navigation" aria-label="Основная навигация">
+                <ul role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem" aria-current="page">Главная</a></li>
+                    <li role="none"><a href="about.html" role="menuitem">О нас</a></li>
+                    <li role="none"><a href="product.html" role="menuitem">Товары</a></li>
+                    <li role="none"><a href="services.html" role="menuitem">Услуги</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="header-search-toggle" aria-label="Поиск по сайту">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
+                <div class="header-search" id="headerSearch">
+                    <input type="text" placeholder="Поиск по сайту..." aria-label="Поиск по сайту">
+                    <button class="search-close" aria-label="Закрыть поиск">×</button>
+                </div>
+                <div class="user-indicator" id="userIndicator"></div>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
-        
-        <nav class="main-menu" id="main-menu" role="navigation" aria-label="Основная навигация">
-            <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem" aria-current="page">Главная</a></li>
-                <li role="none"><a href="about.html" role="menuitem">О нас</a></li>
-                <li role="none"><a href="product.html" role="menuitem">Товары</a></li>
-                <li role="none"><a href="services.html" role="menuitem">Услуги</a></li>
-                <li role="none"><a href="#contact" role="menuitem">Контакты</a></li>
-            </ul>
-        </nav>
-        
-        <div class="header-actions">
-            <button class="btn btn-login">Вход</button>
-            <button class="btn btn-register">Регистрация</button>
-        </div>
-        
-        <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-    </div>
-</header>
+    </header>
 
     <!-- Основное содержимое страницы -->
     <main id="main-content" role="main">
@@ -277,184 +291,152 @@
             </div>
         </section>
 
-        <!-- Секция таблиц с продуктами -->
+        <!-- Секция продуктов с интерактивными карточками -->
         <section id="products" class="products-section main-section" aria-labelledby="products-heading">
             <div class="container">
                 <h2 id="products-heading" class="section-title">Наши продукты</h2>
                 <p class="section-subtitle">Комплексные решения для различных отраслей бизнеса</p>
                 
-                <div class="table-container" role="region" aria-labelledby="products-table-caption">
-                    <table class="products-table" aria-describedby="products-table-description">
-                        <caption id="products-table-caption" class="sr-only">Таблица продуктов INFO-MARKET с ценами и рейтингами</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Категория</th>
-                                <th scope="col">Продукт</th>
-                                <th scope="col">Основные функции</th>
-                                <th scope="col">Рейтинг</th>
-                                <th scope="col">Цена</th>
-                                <th scope="col">Действия</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="rowgroup" rowspan="2" class="category-header">Obrbot (Образование)</th>
-                                <td>ЕГЭ/OГЭ - решебник</td>
-                                <td>Сборник актуальных задач по любым предметам</td>
-                                <td>
-                                    <span class="rating-stars" aria-label="Рейтинг 4.8 из 5">★★★★☆</span>
-                                    <span class="rating-value">4.8</span>
-                                </td>
-                                <td class="price">4,500 руб.</td>
-                                <td>
-                                    <button class="btn btn-table" aria-label="Подробнее о ЕГЭ/OГЭ решебник">Подробнее</button>
-                                    <button class="btn btn-table btn-buy" aria-label="Купить ЕГЭ/OГЭ решебник">Купить</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Английский язык для IT-интенсив</td>
-                                <td>Быстрое изучение с нуля, интерактивные уроки</td>
-                                <td>
-                                    <span class="rating-stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
-                                    <span class="rating-value">4.9</span>
-                                </td>
-                                <td class="price">5,500 руб.</td>
-                                <td>
-                                    <button class="btn btn-table" aria-label="Подробнее об Английском для IT">Подробнее</button>
-                                    <button class="btn btn-table btn-buy" aria-label="Купить Английский для IT">Купить</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="rowgroup" rowspan="2" class="category-header">Finbot (Финансы)</th>
-                                <td>Учет финансов</td>
-                                <td>Учет средств и персональные рекомендации</td>
-                                <td>
-                                    <span class="rating-stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
-                                    <span class="rating-value">4.9</span>
-                                </td>
-                                <td class="price">8,900 руб.</td>
-                                <td>
-                                    <button class="btn btn-table" aria-label="Подробнее об Учете финансов">Подробнее</button>
-                                    <button class="btn btn-table btn-buy" aria-label="Купить Учет финансов">Купить</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Инвестиционный помощник</td>
-                                <td>Анализ рынка акций и криптовалют</td>
-                                <td>
-                                    <span class="rating-stars" aria-label="Рейтинг 4.7 из 5">★★★★☆</span>
-                                    <span class="rating-value">4.7</span>
-                                </td>
-                                <td class="price">12,000 руб.</td>
-                                <td>
-                                    <button class="btn btn-table" aria-label="Подробнее об Инвестиционном помощнике">Подробнее</button>
-                                    <button class="btn btn-table btn-buy" aria-label="Купить Инвестиционный помощник">Купить</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="rowgroup" rowspan="2" class="category-header">AI Assistant</th>
-                                <td>AI-помощник 24/7</td>
-                                <td>На базе GPT-4, отвечает на вопросы, генерирует контент</td>
-                                <td>
-                                    <span class="rating-stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
-                                    <span class="rating-value">4.9</span>
-                                </td>
-                                <td class="price">15,000 руб.</td>
-                                <td>
-                                    <button class="btn btn-table" aria-label="Подробнее об AI-помощнике">Подробнее</button>
-                                    <button class="btn btn-table btn-buy" aria-label="Купить AI-помощник">Купить</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Голосовой ассистент</td>
-                                <td>Распознавание речи, управление устройствами</td>
-                                <td>
-                                    <span class="rating-stars" aria-label="Рейтинг 4.7 из 5">★★★★☆</span>
-                                    <span class="rating-value">4.7</span>
-                                </td>
-                                <td class="price">11,000 руб.</td>
-                                <td>
-                                    <button class="btn btn-table" aria-label="Подробнее о Голосовом ассистенте">Подробнее</button>
-                                    <button class="btn btn-table btn-buy" aria-label="Купить Голосовой ассистент">Купить</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="6" class="table-footer">
-                                    Показано 6 из 20 продуктов. <a href="#" class="view-all">Посмотреть все продукты</a>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-
-                <!-- Дополнительная таблица с сравнением тарифов -->
-                <div class="pricing-comparison" role="region" aria-labelledby="pricing-comparison-heading">
-                    <h3 id="pricing-comparison-heading" class="comparison-title">Сравнение тарифных планов</h3>
-                    <table class="comparison-table" aria-describedby="pricing-comparison-description">
-                        <caption id="pricing-comparison-description" class="sr-only">Сравнение тарифных планов Стартовый, Профессиональный, Корпоративный и Премиум</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Функция</th>
-                                <th scope="col">Стартовый</th>
-                                <th scope="col">Профессиональный</th>
-                                <th scope="col">Корпоративный</th>
-                                <th scope="col">Премиум</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Количество пользователей</th>
-                                <td>1</td>
-                                <td>5</td>
-                                <td>Безлимитно</td>
-                                <td>Безлимитно</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Объем хранилища</th>
-                                <td>10 ГБ</td>
-                                <td>100 ГБ</td>
-                                <td>500 ГБ</td>
-                                <td>1 ТБ</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Приоритетная поддержка</th>
-                                <td><span aria-hidden="true">✗</span><span class="sr-only">Нет</span></td>
-                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
-                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
-                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да, 24/7</span> 24/7</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Интеграции со сторонними сервисами</th>
-                                <td>3</td>
-                                <td>10</td>
-                                <td>Безлимитно</td>
-                                <td>Безлимитно</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Кастомная аналитика</th>
-                                <td><span aria-hidden="true">✗</span><span class="sr-only">Нет</span></td>
-                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
-                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да</span></td>
-                                <td><span aria-hidden="true">✓</span><span class="sr-only">Да, расширенная</span> Расширенная</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Стоимость в месяц</th>
-                                <td>2,990 руб.</td>
-                                <td>7,990 руб.</td>
-                                <td>19,990 руб.</td>
-                                <td>39,990 руб.</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Стартовый тариф">Выбрать</button></td>
-                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Профессиональный тариф">Выбрать</button></td>
-                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Корпоративный тариф">Выбрать</button></td>
-                                <td><button class="btn btn-table btn-buy" aria-label="Выбрать Премиум тариф">Выбрать</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="floating-islands">
+                    <!-- Карточка 1 -->
+                    <div class="product-island" data-product="1">
+                        <div class="product-header">
+                            <span class="product-category">Obrbot</span>
+                            <div class="product-rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span class="rating-value">4.8</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">ЕГЭ/OГЭ - решебник</h3>
+                            <p class="product-description">Сборник актуальных задач по любым предметам с детальными решениями и объяснениями.</p>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">4,500 руб.</div>
+                                <div class="product-actions">
+                                    <button type="button" class="btn-more" aria-expanded="false">Подробнее</button>
+                                    <button type="button" class="btn-buy" aria-label="Купить — открыть Telegram">Купить</button>
+                                </div>
+                            </div>
+                        <!-- контейнер для инлайн-деталей (скроется по умолчанию) -->
+                        <div class="product-details" aria-hidden="true"></div>
+                    
+                    <!-- Карточка 2 -->
+                    <div class="product-island" data-product="2">
+                        <div class="product-header">
+                            <span class="product-category">Obrbot</span>
+                            <div class="product-rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Английский язык для IT-интенсив</h3>
+                            <p class="product-description">Быстрое изучение с нуля, интерактивные уроки и практика с носителями языка.</p>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">5,500 руб.</div>
+                                <div class="product-actions">
+                                    <button type="button" class="btn-more" aria-expanded="false">Подробнее</button>
+                                    <button type="button" class="btn-buy" aria-label="Купить — открыть Telegram">Купить</button>
+                                </div>
+                            </div>
+                        <!-- контейнер для инлайн-деталей (скроется по умолчанию) -->
+                        <div class="product-details" aria-hidden="true"></div>
+                    <!-- Карточка 3 -->
+                    <div class="product-island" data-product="3">
+                        <div class="product-header">
+                            <span class="product-category">Finbot</span>
+                            <div class="product-rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Учет финансов</h3>
+                            <p class="product-description">Автоматический учет средств и персональные рекомендации по оптимизации расходов.</p>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">8,900 руб.</div>
+                                <div class="product-actions">
+                                    <button type="button" class="btn-more" aria-expanded="false">Подробнее</button>
+                                    <button type="button" class="btn-buy" aria-label="Купить — открыть Telegram">Купить</button>
+                                </div>
+                            </div>
+                        <!-- контейнер для инлайн-деталей (скроется по умолчанию) -->
+                        <div class="product-details" aria-hidden="true"></div>
+                    </div>
+                    <!-- Карточка 4 -->
+                    <div class="product-island" data-product="4">
+                        <div class="product-header">
+                            <span class="product-category">Finbot</span>
+                            <div class="product-rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Инвестиционный помощник</h3>
+                            <p class="product-description">Анализ рынка акций и криптовалют с AI-прогнозами и рекомендациями.</p>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">12,500 руб.</div>
+                                <div class="product-actions">
+                                    <button type="button" class="btn-more" aria-expanded="false">Подробнее</button>
+                                    <button type="button" class="btn-buy" aria-label="Купить — открыть Telegram">Купить</button>
+                                </div>
+                            </div>
+                        <!-- контейнер для инлайн-деталей (скроется по умолчанию) -->
+                        <div class="product-details" aria-hidden="true"></div>
+                    </div>
+                    
+                    <!-- Карточка 5 -->
+                    <div class="product-island" data-product="5">
+                        <div class="product-header">
+                            <span class="product-category">AI Assistant</span>
+                            <div class="product-rating">
+                                <span class="rating-stars">★★★★★</span>
+                                <span class="rating-value">4.9</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">AI-помощник 24/7</h3>
+                            <p class="product-description">На базе GPT-4, отвечает на вопросы, генерирует контент и помогает в решении задач.</p>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">14,500 руб.</div>
+                                <div class="product-actions">
+                                    <button type="button" class="btn-more" aria-expanded="false">Подробнее</button>
+                                    <button type="button" class="btn-buy" aria-label="Купить — открыть Telegram">Купить</button>
+                                </div>
+                            </div>
+                        <!-- контейнер для инлайн-деталей (скроется по умолчанию) -->
+                        <div class="product-details" aria-hidden="true"></div>
+                    </div>
+                    
+                    <!-- Карточка 6 -->
+                    <div class="product-island" data-product="6">
+                        <div class="product-header">
+                            <span class="product-category">AI Assistant</span>
+                            <div class="product-rating">
+                                <span class="rating-stars">★★★★☆</span>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-title">Голосовой ассистент</h3>
+                            <p class="product-description">Распознавание речи, управление устройствами и интеграция с умным домом.</p>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">18,999 руб.</div>
+                                <div class="product-actions">
+                                    <button type="button" class="btn-more" aria-expanded="false">Подробнее</button>
+                                    <button type="button" class="btn-buy" aria-label="Купить — открыть Telegram">Купить</button>
+                                </div>
+                            </div>
+                        <!-- контейнер для инлайн-деталей (скроется по умолчанию) -->
+                        <div class="product-details" aria-hidden="true"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -600,173 +582,736 @@
         </div>
     </footer>
 
-    <!-- Вспомогательные скрипты -->
-    <script>
-        // Улучшенный скрипт для анимации счетчиков статистики
-        document.addEventListener('DOMContentLoaded', function() {
-            // Анимация счетчиков
-            const counters = document.querySelectorAll('.stat-number');
-            const speed = 200;
-            
-            const animateCounter = (counter) => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const increment = target / speed;
-                
-                if (count < target) {
-                    const updateCount = () => {
-                        const newCount = Math.ceil(count + increment);
-                        if (newCount < target) {
-                            counter.innerText = newCount;
-                            setTimeout(updateCount, 1);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    updateCount();
-                }
-            };
-            
-            // Intersection Observer для запуска анимации при прокрутке
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            counters.forEach(counter => {
-                observer.observe(counter);
-            });
-            
-            // Мобильное меню
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const mainMenu = document.querySelector('.main-menu');
-            
-            if (menuToggle && mainMenu) {
-                menuToggle.addEventListener('click', () => {
-                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                    menuToggle.setAttribute('aria-expanded', !isExpanded);
-                    mainMenu.classList.toggle('active');
-                    
-                    // Блокировка скролла при открытом меню
-                    document.body.style.overflow = !isExpanded ? 'hidden' : '';
-                });
-            }
-            
-            // Закрытие меню при клике на ссылку
-            document.querySelectorAll('.main-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mainMenu.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            // Плавная прокрутка для якорных ссылок
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Анимация появления элементов при скролле
-            const animateOnScroll = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform = "translateY(0)";
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            // Применяем анимацию к карточкам
-            document.querySelectorAll('.advantage-card, .testimonial-card, .stat-item').forEach(el => {
-                el.style.opacity = "0";
-                el.style.transform = "translateY(30px)";
-                el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-                animateOnScroll.observe(el);
-            });
-            
-            // Particle system initialization
-            const particlesContainer = document.getElementById('particles-container');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random properties
-                const size = Math.random() * 3 + 1;
-                const left = Math.random() * 100;
-                const animationDuration = Math.random() * 20 + 10;
-                const animationDelay = Math.random() * 5;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${left}%`;
-                particle.style.animationDuration = `${animationDuration}s`;
-                particle.style.animationDelay = `${animationDelay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
+
+
+<script>
+/* ============================================================
+   SUPER UI: единый улучшённый скрипт для карточек, модалки,
+   счётчиков, меню, частиц и общих эффектов.
+   Вставь это вместо старых скриптов внизу index.html
+   ============================================================ */
+(() => {
+  'use strict';
+
+  // ---------- Настройки ----------
+  const TELEGRAM_HANDLE = 'V8R878'; // opens https://t.me/V8R878 and also uses share link
+  const particlesSettings = {
+    desktopCount: 60,
+    mobileCount: 18,
+    maxSize: 3.2,
+    minSize: 0.8,
+    speed: 0.15 // px per ms approx
+  };
+
+  // ---------- Utility ----------
+  const $ = sel => document.querySelector(sel);
+  const $$ = sel => Array.from(document.querySelectorAll(sel));
+  const isMobile = () => window.matchMedia('(pointer: coarse), (max-width: 900px)').matches;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  const throttle = (fn, wait) => {
+    let last = 0;
+    return (...args) => {
+      const now = Date.now();
+      if (now - last >= wait) {
+        last = now;
+        fn(...args);
+      }
+    };
+  };
+
+  const debounce = (fn, wait = 200) => {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), wait);
+    };
+  };
+
+  // Простые уведомления (всплывающие toasts)
+  const makeToast = (() => {
+    let container;
+    return (text, ms = 2200) => {
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'super-toast-container';
+        Object.assign(container.style, {
+          position: 'fixed', right: '18px', bottom: '18px', zIndex: 12000, display: 'flex', flexDirection: 'column', gap: '8px'
         });
-        
-        // Эффект параллакса для фона
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.gradient-orbs, .grid-pattern');
-            
-            parallaxElements.forEach(element => {
-                const speed = element.classList.contains('gradient-orbs') ? 0.5 : 0.3;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-    </script>
-    <script>
-    // Проверка авторизации на главной странице
-    document.addEventListener('DOMContentLoaded', function() {
-        const user = JSON.parse(localStorage.getItem('user'));
-        const headerActions = document.querySelector('.header-actions');
-        
-        if (user && user.loggedIn) {
-            // Пользователь авторизован - показываем кнопку "Личный кабинет"
-            headerActions.innerHTML = `
-                <span style="color: var(--text-white); margin-right: 1rem;">Привет, ${user.name}</span>
-                <button class="btn btn-login" onclick="window.location.href='lichcab.html'">Личный кабинет</button>
-                <button class="btn btn-register" onclick="logout()">Выйти</button>
-            `;
-        } else {
-            // Пользователь не авторизован - показываем кнопки входа/регистрации
-            headerActions.innerHTML = `
-                <button class="btn btn-login" onclick="window.location.href='login.html'">Вход</button>
-                <button class="btn btn-register" onclick="window.location.href='register.html'">Регистрация</button>
-            `;
-        }
+        document.body.appendChild(container);
+      }
+      const node = document.createElement('div');
+      node.className = 'super-toast';
+      node.textContent = text;
+      Object.assign(node.style, {
+        background: 'linear-gradient(90deg, rgba(0,0,0,0.75), rgba(10,10,10,0.85))',
+        color: '#fff', padding: '10px 14px', borderRadius: '10px', fontSize: '14px',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.45)', opacity: 0, transform: 'translateY(8px)', transition: 'all .26s ease'
+      });
+      container.appendChild(node);
+      requestAnimationFrame(() => { node.style.opacity = 1; node.style.transform = 'translateY(0)'; });
+      setTimeout(() => {
+        node.style.opacity = 0;
+        node.style.transform = 'translateY(8px)';
+        setTimeout(() => node.remove(), 300);
+      }, ms);
+    };
+  })();
+
+  // Копирование в буфер с fallback
+  async function copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (err) {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        ta.remove();
+        return true;
+      } catch (e) {
+        ta.remove();
+        return false;
+      }
+    }
+  }
+
+  // ---------- productsData (вставь сюда свои данные) ----------
+  const productsData = {
+    1: {
+      category: "Obrbot",
+      title: "ЕГЭ/OГЭ - решебник",
+      rating: 4.8,
+      ratingStars: "★★★★☆",
+      price: "4,500 руб.",
+      features: [
+        "Сборник актуальных задач по любым предметам",
+        "Детальные решения с пошаговыми объяснениями",
+        "Автоматическая проверка ответов",
+        "Персональные рекомендации по улучшению результатов",
+        "Статистика прогресса обучения"
+      ],
+      extraFeatures: [
+        "Доступ с любых устройств",
+        "Офлайн-режим для занятий без интернета",
+        "Интеграция с школьными электронными журналами"
+      ]
+    },
+    2: {
+      category: "Obrbot",
+      title: "Английский язык для IT-интенсив",
+      rating: 4.9,
+      ratingStars: "★★★★★",
+      price: "5,500 руб.",
+      features: [
+        "Быстрое изучение с нуля за 3 месяца",
+        "Интерактивные уроки с носителями языка",
+        "Специализированная IT-лексика",
+        "Практика разговорной речи с AI-тренером",
+        "Подготовка к собеседованиям на английском"
+      ],
+      extraFeatures: [
+        "Доступ к сообществу IT-специалистов",
+        "Персональный куратор на время обучения",
+        "Сертификат о прохождении курса"
+      ]
+    },
+    3: {
+      category: "Finbot",
+      title: "Учет финансов",
+      rating: 4.9,
+      ratingStars: "★★★★★",
+      price: "8,900 руб.",
+      features: [
+        "Автоматический учет доходов и расходов",
+        "Категоризация трат с AI-аналитикой",
+        "Персональные рекомендации по оптимизации бюджета",
+        "Планирование финансовых целей",
+        "Синхронизация с банковскими счетами"
+      ],
+      extraFeatures: [
+        "Мультивалютная поддержка",
+        "Совместный бюджет для семьи",
+        "Экспорт данных в Excel и PDF"
+      ]
+    },
+    4: {
+      category: "Finbot",
+      title: "Инвестиционный помощник",
+      rating: 4.7,
+      ratingStars: "★★★★☆",
+      price: "12,000 руб.",
+      features: [
+        "Анализ рынка акций и криптовалют в реальном времени",
+        "AI-прогнозы на основе машинного обучения",
+        "Персональные инвестиционные рекомендации",
+        "Мониторинг портфеля с уведомлениями",
+        "Автоматическая ребалансировка активов"
+      ],
+      extraFeatures: [
+        "Интеграция с брокерскими счетами",
+        "Доступ к эксклюзивным аналитическим отчетам",
+        "Консультации с финансовыми экспертами"
+      ]
+    },
+    5: {
+      category: "AI Assistant",
+      title: "AI-помощник 24/7",
+      rating: 4.9,
+      ratingStars: "★★★★★",
+      price: "15,000 руб.",
+      features: [
+        "Ответы на вопросы на базе GPT-4",
+        "Генерация контента: тексты, код, изображения",
+        "Помощь в решении бизнес-задач",
+        "Интеграция с корпоративными системами",
+        "Анализ данных и создание отчетов"
+      ],
+      extraFeatures: [
+        "Обучение на ваших данных",
+        "Мультиязыковая поддержка",
+        "API для интеграции с другими приложениями"
+      ]
+    },
+    6: {
+      category: "AI Assistant",
+      title: "Голосовой ассистент",
+      rating: 4.7,
+      ratingStars: "★★★★☆",
+      price: "11,000 руб.",
+      features: [
+        "Распознавание речи с точностью 98%",
+        "Управление умными устройствами",
+        "Интеграция с календарем и задачами",
+        "Голосовые напоминания и уведомления",
+        "Персональные рекомендации на основе привычек"
+      ],
+      extraFeatures: [
+        "Работа в офлайн-режиме",
+        "Поддержка нескольких пользователей",
+        "Интеграция с популярными сервисами"
+      ]
+    }
+  };
+
+  // ---------- DOM Ready Init ----------
+  document.addEventListener('DOMContentLoaded', () => {
+    initMenu();
+    initCounters();
+    initScrollEffects();
+    initParticles();
+    initProducts();
+    initModal();
+    initHeaderProgress();
+    initUserIndicator();
+  });
+
+  // ---------- MENU ----------
+  function initMenu() {
+    const menuToggle = $('.mobile-menu-toggle');
+    const mainMenu = $('.main-menu');
+
+    if (!menuToggle || !mainMenu) return;
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainMenu.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.documentElement.classList.toggle('no-scroll', isOpen);
+      // focus first link when open
+      if (isOpen) {
+        const firstLink = mainMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+      } else {
+        menuToggle.focus();
+      }
     });
 
-    function logout() {
-        if (confirm('Вы уверены, что хотите выйти?')) {
-            localStorage.removeItem('user');
-            location.reload();
-        }
-    }
-</script>
-</body>
+    // Close on link click
+    mainMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mainMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.classList.remove('no-scroll');
+      });
+    });
 
+    // Close with Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mainMenu.classList.contains('active')) {
+        mainMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.classList.remove('no-scroll');
+        menuToggle.focus();
+      }
+    });
+  }
+
+  // ---------- COUNTERS (requestAnimationFrame + IntersectionObserver) ----------
+  function initCounters() {
+    const counters = $$('.stat-number');
+    if (!counters.length) return;
+
+    const easeOutQuad = t => t * (2 - t);
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.getAttribute('data-target')) || 0;
+        const duration = Number(el.getAttribute('data-duration')) || 1200; // ms
+        const start = performance.now();
+        const initial = Number(el.textContent.replace(/\D/g, '')) || 0;
+        const delta = target - initial;
+
+        function step(now) {
+          const t = clamp((now - start) / duration, 0, 1);
+          el.textContent = Math.floor(initial + delta * easeOutQuad(t)).toLocaleString('ru-RU');
+          if (t < 1) requestAnimationFrame(step);
+          else {
+            el.textContent = target.toLocaleString('ru-RU');
+          }
+        }
+        requestAnimationFrame(step);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => io.observe(c));
+  }
+
+  // ---------- SCROLL-BASED APPEAR (animates elements into view) ----------
+  function initScrollEffects() {
+    const animated = $$('.advantage-card, .testimonial-card, .stat-item, .product-island, .fade-in');
+    if (!animated.length) return;
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view'); // CSS should define .in-view {opacity:1; transform:none;}
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    animated.forEach(el => {
+      el.style.willChange = 'opacity, transform';
+      io.observe(el);
+    });
+  }
+
+  // ---------- PARTICLES (canvas) ----------
+  function initParticles() {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+
+    // If user prefers reduced motion — skip heavy animation
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Create canvas
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particles-canvas';
+    canvas.style.position = 'absolute';
+    canvas.style.inset = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    container.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let DPR = window.devicePixelRatio || 1;
+    function resize() {
+      DPR = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(canvas.clientWidth * DPR);
+      canvas.height = Math.floor(canvas.clientHeight * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    resize();
+
+    const count = isMobile() ? particlesSettings.mobileCount : particlesSettings.desktopCount;
+    const particles = [];
+    const W = () => canvas.clientWidth;
+    const H = () => canvas.clientHeight;
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W(),
+        y: Math.random() * H(),
+        r: Math.random() * (particlesSettings.maxSize - particlesSettings.minSize) + particlesSettings.minSize,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: Math.random() * (particlesSettings.speed * 0.6) + particlesSettings.speed * 0.3,
+        alpha: 0.2 + Math.random() * 0.6
+      });
+    }
+
+    let last = performance.now();
+    function frame(now) {
+      const dt = now - last;
+      last = now;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let p of particles) {
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        if (p.y > H() + 20) {
+          p.y = -10;
+          p.x = Math.random() * W();
+        }
+        if (p.x < -20) p.x = W() + 20;
+        if (p.x > W() + 20) p.x = -20;
+
+        ctx.beginPath();
+        ctx.globalAlpha = p.alpha;
+        // subtle gradient fill for each particle
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2);
+        g.addColorStop(0, 'rgba(255,255,255,0.9)');
+        g.addColorStop(1, 'rgba(255,255,255,0.05)');
+        ctx.fillStyle = g;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    const resizeHandler = debounce(resize, 120);
+    window.addEventListener('resize', resizeHandler, { passive: true });
+    resize();
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- HEADER: progress bar + adaptive hide ----------
+  function initHeaderProgress() {
+    const progressBar = document.getElementById('headerProgress');
+    const header = document.querySelector('.header');
+    if (!progressBar || !header) return;
+
+    const onScroll = throttle(() => {
+      const scrolled = (document.documentElement.scrollTop || document.body.scrollTop);
+      const height = (document.documentElement.scrollHeight - document.documentElement.clientHeight) || 1;
+      const pct = clamp((scrolled / height) * 100, 0, 100);
+      progressBar.style.width = pct + '%';
+    }, 50);
+
+    // adaptive header hide/show
+    let lastScroll = 0;
+    const hideHandler = throttle(() => {
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > 120) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+      if (st > lastScroll && st > 220) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      lastScroll = st;
+    }, 120);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', hideHandler, { passive: true });
+    onScroll();
+  }
+
+  // ---------- USER INDICATOR (localStorage) ----------
+  function initUserIndicator() {
+    const userIndicator = document.getElementById('userIndicator');
+    if (!userIndicator) return;
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    if (user && user.loggedIn) {
+      userIndicator.innerHTML = `
+        <div class="user-indicator">
+          <button class="user-btn" aria-haspopup="true" aria-expanded="false">
+            <span class="user-avatar">${(user.name && user.name.charAt(0)) || 'U'}</span>
+            <span class="user-name">${user.name || 'Пользователь'}</span>
+          </button>
+          <div class="user-popup" role="menu" aria-hidden="true">
+            <a role="menuitem" href="lichcab.html">Личный кабинет</a>
+            <button role="menuitem" id="logoutBtn">Выйти</button>
+          </div>
+        </div>
+      `;
+      const btn = userIndicator.querySelector('.user-btn');
+      const popup = userIndicator.querySelector('.user-popup');
+      btn.addEventListener('click', () => {
+        const open = popup.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        popup.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
+      const logoutBtn = document.getElementById('logoutBtn');
+      logoutBtn.addEventListener('click', () => {
+        if (confirm('Вы уверены, что хотите выйти?')) {
+          localStorage.removeItem('user');
+          location.reload();
+        }
+      });
+    } else {
+      userIndicator.innerHTML = `
+        <div class="anon-actions">
+          <button class="btn btn-login" onclick="location.href='login.html'">Вход</button>
+          <button class="btn btn-register" onclick="location.href='register.html'">Регистрация</button>
+        </div>`;
+    }
+  }
+
+  // ---------- PRODUCTS: inline details, buy, modal opener ----------
+  function initProducts() {
+    const islands = $$('.product-island');
+    if (!islands.length) return;
+
+    // Ensure each product-island has expected sub-elements
+    islands.forEach(island => {
+      // add data-product if missing (try to parse from id)
+      if (!island.dataset.product) {
+        const id = island.getAttribute('id') || island.getAttribute('data-id') || island.getAttribute('data-product');
+        if (id) island.dataset.product = id;
+      }
+      // ensure details container exists
+      if (!island.querySelector('.product-details')) {
+        const details = document.createElement('div');
+        details.className = 'product-details';
+        details.setAttribute('aria-hidden', 'true');
+        island.appendChild(details);
+      }
+    });
+
+    // open only one inline details at a time
+    function closeAllInline(except = null) {
+        islands.forEach(i => {
+        const details = i.querySelector('.product-details');
+        const btnMore = i.querySelector('.btn-more');
+        if (!details) return; // пропускаем, если нет блока details
+        if (i === except) return; // заменили continue на return
+        details.classList.remove('open');
+        details.setAttribute('aria-hidden', 'true');
+        if (btnMore) btnMore.setAttribute('aria-expanded', 'false');
+        });
+
+    }
+
+    islands.forEach(island => {
+      const productId = island.dataset.product;
+      const btnMore = island.querySelector('.btn-more');
+      const btnBuy = island.querySelector('.btn-buy');
+      const details = island.querySelector('.product-details');
+
+      // populate header/title area if you want dynamic content (optional)
+      if (productId && productsData[productId]) {
+        const p = productsData[productId];
+        const titleEl = island.querySelector('.product-title');
+        if (titleEl) titleEl.textContent = p.title;
+        const priceEl = island.querySelector('.product-price');
+        if (priceEl) priceEl.textContent = p.price;
+      }
+
+      if (btnMore) {
+        btnMore.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = details.classList.contains('open');
+          if (!isOpen) { // opening, close others
+            closeAllInline(island);
+          }
+          // lazy fill
+          if (!details.dataset.inited) {
+            const p = productsData[productId] || {};
+            let html = `<div class="inline-detail-head"><strong>${p.title || island.querySelector('.product-title')?.textContent || ''}</strong>`;
+            if (p.ratingStars || p.rating) {
+              html += `<span class="inline-rating" aria-hidden="true">${p.ratingStars || ''} <small>${p.rating || ''}</small></span>`;
+            }
+            html += `</div>`;
+            if (p.features && p.features.length) {
+              html += '<ul class="inline-features">';
+              p.features.slice(0, 5).forEach(f => { html += `<li>${f}</li>`; });
+              html += '</ul>';
+            }
+            html += `<div class="inline-price">Цена: ${p.price || ''}</div>`;
+            details.innerHTML = html;
+            details.dataset.inited = '1';
+          }
+          details.classList.toggle('open');
+          const opened = details.classList.contains('open');
+          btnMore.setAttribute('aria-expanded', opened ? 'true' : 'false');
+          details.setAttribute('aria-hidden', opened ? 'false' : 'true');
+          if (opened) island.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+
+      if (btnBuy) {
+        btnBuy.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          const id = productId;
+          const p = productsData[id] || {};
+          const text = `Хочу купить: ${p.title || 'товар'} — ${p.price || ''}`;
+          // copy to clipboard for convenience
+          const copied = await copyToClipboard(text);
+          if (copied) makeToast('Текст заказа скопирован в буфер обмена');
+          // open Telegram: try t.me share first
+          const shareUrl = `https://t.me/share/url?url=&text=${encodeURIComponent(text)}`;
+          // open contact page too
+          const tgContact = `https://t.me/${TELEGRAM_HANDLE}`;
+          // open share in new tab (user will choose where to send)
+          window.open(shareUrl, '_blank', 'noopener');
+          // also open contact in new tab for direct message
+          setTimeout(() => window.open(tgContact, '_blank', 'noopener'), 250);
+          makeToast('Открываем Telegram — подтвердите отправку сообщения');
+        });
+      }
+
+      // prevent island click from opening modal unexpectedly (we handle modal separately)
+      island.addEventListener('click', (e) => {
+        // if user clicked main card but not buttons — we open modal (handled in initModal)
+      });
+    });
+  }
+
+  // ---------- MODAL: accessible, focus trap ----------
+  function initModal() {
+    const modal = $('#productModal');
+    if (!modal) return;
+    const closeBtn = $('#modalClose');
+    const modalEls = {
+      title: $('#modalTitle'),
+      category: $('#modalCategory'),
+      ratingStars: $('#modalRatingStars'),
+      ratingValue: $('#modalRatingValue'),
+      price: $('#modalPrice'),
+      features: $('#modalFeatures'),
+      extra: $('#modalExtraFeatures')
+    };
+
+    let lastFocused = null;
+    const getFocusable = (container) => {
+      const FOCUSABLE = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+      return Array.from(container.querySelectorAll(FOCUSABLE)).filter(el => el.offsetParent !== null);
+    };
+
+    function open(id, opener) {
+      const data = productsData[id];
+      if (!data) return;
+      lastFocused = opener || document.activeElement;
+      // fill content
+      modalEls.title.textContent = data.title || '';
+      modalEls.category.textContent = data.category || '';
+      modalEls.ratingStars.textContent = data.ratingStars || '';
+      modalEls.ratingValue.textContent = data.rating || '';
+      modalEls.price.textContent = data.price || '';
+      modalEls.features.innerHTML = '';
+      (data.features || []).forEach(f => {
+        const li = document.createElement('li'); li.textContent = f; modalEls.features.appendChild(li);
+      });
+      modalEls.extra.innerHTML = '';
+      (data.extraFeatures || []).forEach(f => {
+        const li = document.createElement('li'); li.textContent = f; modalEls.extra.appendChild(li);
+      });
+
+      modal.classList.add('active');
+      document.documentElement.classList.add('no-scroll');
+      modal.setAttribute('aria-hidden', 'false');
+
+      // focus trap
+      const focusable = getFocusable(modal);
+      if (focusable.length) focusable[0].focus();
+
+      function trap(e) {
+        if (e.key === 'Tab') {
+          const nodes = getFocusable(modal);
+          if (!nodes.length) { e.preventDefault(); return; }
+          const first = nodes[0], last = nodes[nodes.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+        if (e.key === 'Escape') {
+          close();
+        }
+      }
+      modal._trap = trap;
+      document.addEventListener('keydown', trap);
+    }
+
+    function close() {
+      modal.classList.remove('active');
+      document.documentElement.classList.remove('no-scroll');
+      modal.setAttribute('aria-hidden', 'true');
+      if (modal._trap) document.removeEventListener('keydown', modal._trap);
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    // wire up openers (island click / btn-more already call openProductModal earlier — but we keep safe)
+    $$('.product-island').forEach(island => {
+      island.addEventListener('dblclick', (e) => {
+        const id = island.dataset.product;
+        open(id, island);
+      });
+    });
+
+    // Expose function globally for existing code compatibility
+    window.openProductModal = (id) => open(id, document.activeElement);
+
+    // events
+    closeBtn?.addEventListener('click', close);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) close();
+    });
+  }
+
+  // ---------- Header search toggle & click outside ----------
+  (function initHeaderSearch() {
+    const searchToggle = $('.header-search-toggle');
+    const searchContainer = $('#headerSearch');
+    if (!searchToggle || !searchContainer) return;
+    const closeBtn = searchContainer.querySelector('.search-close');
+
+    searchToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const active = searchContainer.classList.toggle('active');
+      if (active) {
+        searchContainer.querySelector('input')?.focus();
+      } else {
+        searchToggle.focus();
+      }
+    });
+
+    closeBtn?.addEventListener('click', () => searchContainer.classList.remove('active'));
+
+    document.addEventListener('click', (e) => {
+      if (!searchContainer.contains(e.target) && !searchToggle.contains(e.target)) {
+        searchContainer.classList.remove('active');
+      }
+    });
+  })();
+
+  // ---------- header modal opener shim (when clicking card) ----------
+  (function wireModalOpeners() {
+    const btnMoreButtons = $$('.btn-more');
+    const productIslands = $$('.product-island');
+
+    btnMoreButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // handled elsewhere as inline detail; but allow holding Alt or double-click to open modal
+        if (e.altKey || e.detail === 2) {
+          const pid = btn.closest('.product-island').dataset.product;
+          if (pid) window.openProductModal && window.openProductModal(pid);
+        }
+      });
+    });
+
+    productIslands.forEach(island => {
+      island.addEventListener('click', (e) => {
+        // if clicked not on button and not on inline details, open modal
+        const target = e.target;
+        if (target.closest('.btn-more') || target.closest('.btn-buy') || target.closest('.product-details')) return;
+        const pid = island.dataset.product;
+        if (pid) window.openProductModal && window.openProductModal(pid);
+      });
+    });
+  })();
+
+  // ---------- Accessibility helper: prevent body scroll when needed ----------
+  // Add style class .no-scroll { overflow: hidden; height: 100vh; } into CSS
+  // (user's CSS should include this rule)
+
+})();
+</script>
+
+
+</body>
 </html>
