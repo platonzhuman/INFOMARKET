@@ -12,31 +12,29 @@
 <header class="header" role="banner">
     <div class="container">
         <div class="logo-section">
-            <a href="/" class="logo">
-                <div class="logo-icon"></div>
-                <div class="logo-text">
-                    <span class="logo-primary">INFOMARKET</span>
-                    <span class="logo-subtitle">TECHNOLOGIES</span>
-                </div>
-            </a>
+            <h1 class="logo">
+                <a href="index.html" aria-label="INFO-MARKET - вернуться на главную">
+                    INFO-MARKET
+                </a>
+            </h1>
         </div>
         
-        <nav class="main-menu">
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="product.html" aria-current="page">Товары</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="index.html">Контакты</a></li>
+        <nav class="main-menu" id="main-menu" role="navigation" aria-label="Основная навигация">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem" aria-current="page">Главная</a></li>
+                <li role="none"><a href="about.html" role="menuitem">О нас</a></li>
+                <li role="none"><a href="product.html" role="menuitem">Товары</a></li>
+                <li role="none"><a href="services.html" role="menuitem">Услуги</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Контакты</a></li>
             </ul>
         </nav>
         
         <div class="header-actions">
-            <button class="btn btn-login">Вход</button>
-            <button class="btn btn-register">Регистрация</button>
+            <button class="btn btn-login" onclick="window.location.href='./login.html'">Вход</button>
+            <button class="btn btn-register" onclick="window.location.href='./register.html'">Регистрация</button>
         </div>
         
-        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+        <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
