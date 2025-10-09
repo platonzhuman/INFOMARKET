@@ -126,3 +126,72 @@ function logout() {
 document.addEventListener('DOMContentLoaded', checkAuthStatus);
 
 
+// Скрипт для работы улучшенного меню
+function initEnhancedMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const body = document.body;
+
+    if (!menuToggle || !menuOverlay) return;
+
+    // Переключение меню
+    menuToggle.addEventListener('click', function() {
+        const isOpen = menuOverlay.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Закрытие меню при клике на ссылку
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            body.style.overflow = '';
+        });
+    });
+
+    // Закрытие меню при клике вне области меню
+    menuOverlay.addEventListener('click', function(e) {
+        if (e.target === menuOverlay) {
+            menuOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            body.style.overflow = '';
+        }
+    });
+
+    // Закрытие меню при нажатии Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
+            menuOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            body.style.overflow = '';
+        }
+    });
+
+    // Эффект скролла для header
+    let lastScroll = 0;
+    const header = document.querySelector('.header');
+
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+// Добавьте вызов функции в DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    initEnhancedMenu();
+    // остальные ваши инициализации...
+});
