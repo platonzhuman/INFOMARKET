@@ -195,3 +195,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initEnhancedMenu();
     // остальные ваши инициализации...
 });
+
