@@ -196,3 +196,107 @@ document.addEventListener('DOMContentLoaded', function() {
     // остальные ваши инициализации...
 });
 
+// main.js
+class App {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupMobileMenu();
+        this.setupSmoothScroll();
+        this.setupAnimations();
+        this.setupHeaderScroll();
+    }
+
+    // Мобильное меню
+    setupMobileMenu() {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Плавная прокрутка
+    setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
+
+    // Анимации при скролле
+    setupAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // Изменение хедера при скролле
+    setupHeaderScroll() {
+        const header = document.querySelector('.header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+    }
+}
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    new App();
+});
+
+// Preloader (опционально)
+window.addEventListener('load', () => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.remove();
+        }, 300);
+    }
+});
